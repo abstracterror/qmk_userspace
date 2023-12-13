@@ -80,10 +80,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_MOUSE] = LAYOUT(
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        XXXXXXX, KC_BTN2, KC_BTN3, KC_BTN1, SCRL_MO,          SCRL_MO, KC_BTN1, KC_BTN3, KC_BTN2, XXXXXXX,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                          KC_LCTL, KC_LALT, _______,          KC_LSFT, KC_LALT, KC_LCTL
+        KC_ESC,  XXXXXXX, KC_LGUI, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, KC_LGUI, XXXXXXX, XXXXXXX,
+        KC_LCTL, KC_BTN2, KC_LALT, KC_BTN1, XXXXXXX,          XXXXXXX, KC_BTN1, KC_LALT, KC_BTN2, KC_LCTL,
+        XXXXXXX, XXXXXXX, KC_BTN3, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, KC_BTN3, XXXXXXX, XXXXXXX,
+                          KC_ESC,  SCRL_MO, KC_LSFT,          KC_LSFT, SCRL_MO, XXXXXXX
     ),
 
     [_LSYM] = LAYOUT(
@@ -95,8 +95,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_TSYM] = LAYOUT(
         KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,          KC_CIRC, KC_AMPR, KC_ASTR, KC_GRV,  KC_TILD,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX,          RGB_MOD, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI,
+        QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, CPI_SW,  SCRL_SW, XXXXXXX, XXXXXXX,
                           XXXXXXX, XXXXXXX, _______,          XXXXXXX, XXXXXXX, XXXXXXX
     ),
 
@@ -124,61 +124,34 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 #endif
 
 
-bool is_mouse_record_kb(uint16_t keycode, keyrecord_t* record) {
+bool is_mouse_record_user(uint16_t keycode, keyrecord_t* record) {
     switch(keycode) {
-      case KC_LCTL:
-        return true;
-      case KC_LSFT:
-        return true;
-      case SCRL_MO:
-        return true;
-      default:
-        return false;
+        case KC_LCTL:
+        case KC_LSFT:
+        case KC_LGUI:
+        case KC_LALT:
+        case SCRL_MO:
+            return true;
+        default:
+            return false;
     }
-    return is_mouse_record_user(keycode, record);
 }
 
 
-/*
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
-    case 1:
-        //rgblight_sethsv_range(HSV_YELLOW, 0, 9);
+    case _NUM:
         cocot_set_scroll_mode(true);
-        break;
-    case 2:
-        //rgblight_sethsv_range(HSV_GREEN, 0, 9);
-        cocot_set_scroll_mode(true);
-        break;
-    case 3:
-        //rgblight_sethsv_range(HSV_CYAN, 0, 9);
-        cocot_set_scroll_mode(false);
-        break;
-    case 4:
-        //rgblight_sethsv_range(HSV_AZURE, 0, 9);
-        cocot_set_scroll_mode(false);
-        break;
-    case 5:
-        //rgblight_sethsv_range(HSV_BLUE, 0, 9);
-        cocot_set_scroll_mode(false);
-        break;
-    case 6:
-        //rgblight_sethsv_range(HSV_MAGENTA, 0, 9);
-        cocot_set_scroll_mode(false);
-        break;
-    case 7:
-        //rgblight_sethsv_range(HSV_MAGENTA, 0, 9);
-        cocot_set_scroll_mode(false);
+        state = remove_auto_mouse_layer(state, false);
+        set_auto_mouse_enable(false);
         break;
     default:
-        //rgblight_sethsv_range(HSV_RED, 0, 9);
         cocot_set_scroll_mode(false);
+        set_auto_mouse_enable(true);
         break;
     }
-    //rgblight_set_effect_range( 9, 36);
   return state;
 };
-*/
 
 #ifdef RGB_MATRIX_ENABLE
 
@@ -216,5 +189,6 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 
 
 void pointing_device_init_user(void) {
+    set_auto_mouse_layer(_MOUSE);
     set_auto_mouse_enable(true);
 }
