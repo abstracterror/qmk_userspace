@@ -17,6 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 #include "g/keymap_combo.h"
+#include "abstracterror.h"
 
 enum layer_names {
     _BASE,
@@ -26,11 +27,13 @@ enum layer_names {
     _MOUSE,
     _LSYM,
     _TSYM,
-    _NAV
+    _NAV,
+    _UNDO
 };
 
 #define LT_F    LT(_FUN,  KC_F)
 #define LT_P    LT(_RSYM, KC_P)
+#define LT_Z    LT(_UNDO, KC_Z)
 #define LT_TAB  LT(_NUM,  KC_TAB)
 #define LT_SPC  LT(_NAV,  KC_SPC)
 #define MO_LSYM MO(_LSYM)
@@ -54,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
         KC_Q,    KC_W,    LT_F,    LT_P,    KC_B,             KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,
         MT_A,    MT_R,    MT_S,    MT_T,    KC_G,             KC_M,    MT_N,    MT_E,    MT_I,    MT_O,
-        KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,             KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,
+        LT_Z,    KC_X,    KC_C,    KC_D,    KC_V,             KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,
                           MT_ESC,  LT_TAB,  KC_LSFT,          LT_SPC,  MO_LSYM, KC_ENT
     ),
 
@@ -105,21 +108,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         MT_CAPS, KC_LSFT, KC_LGUI, KC_LALT, KC_ESC,           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_ENT,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_INS,
                           XXXXXXX, XXXXXXX, _______,          XXXXXXX, XXXXXXX, XXXXXXX
-    )
+    ),
+
+    [_UNDO] = LAYOUT(
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                          XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX
+    ),
 };
 
 
 
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-    [0] =   { ENCODER_CCW_CW(KC_PGUP, KC_PGDN) },
-    [1] =   { ENCODER_CCW_CW(XXXXXXX, XXXXXXX) },
-    [2] =   { ENCODER_CCW_CW(XXXXXXX, XXXXXXX) },
-    [3] =   { ENCODER_CCW_CW(XXXXXXX, XXXXXXX) },
-    [4] =   { ENCODER_CCW_CW(XXXXXXX, XXXXXXX) },
-    [5] =   { ENCODER_CCW_CW(XXXXXXX, XXXXXXX) },
-    [6] =   { ENCODER_CCW_CW(XXXXXXX, XXXXXXX) },
-    [7] =   { ENCODER_CCW_CW(XXXXXXX, XXXXXXX) },
+    [_BASE]  = { ENCODER_CCW_CW(PREVIOUS_TASK, NEXT_TASK) },
+    [_FUN]   = { ENCODER_CCW_CW(XXXXXXX, XXXXXXX) },
+    [_NUM]   = { ENCODER_CCW_CW(KC_PGUP, KC_PGDN) },
+    [_RSYM]  = { ENCODER_CCW_CW(XXXXXXX, XXXXXXX) },
+    [_MOUSE] = { ENCODER_CCW_CW(_______, _______) },
+    [_LSYM]  = { ENCODER_CCW_CW(XXXXXXX, XXXXXXX) },
+    [_TSYM]  = { ENCODER_CCW_CW(XXXXXXX, XXXXXXX) },
+    [_NAV]   = { ENCODER_CCW_CW(XXXXXXX, XXXXXXX) },
+    [_UNDO]  = { ENCODER_CCW_CW(UNDO,    REDO)    },
 };
 #endif
 
@@ -142,6 +153,10 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
     case _NUM:
         cocot_set_scroll_mode(true);
+        state = remove_auto_mouse_layer(state, false);
+        set_auto_mouse_enable(false);
+        break;
+    case _UNDO:
         state = remove_auto_mouse_layer(state, false);
         set_auto_mouse_enable(false);
         break;

@@ -1,5 +1,21 @@
 #pragma once
 
+// custom keycodes
+enum userspace_keycodes {
+    UNDO = SAFE_RANGE,
+    REDO,
+
+#ifdef TASK_SWITCHING
+    NEXT_TASK,
+    PREVIOUS_TASK,
+    NEXT_WINDOW,
+    PREVIOUS_WINDOW,
+#endif
+
+    KEYMAP_SAFE_RANGE
+};
+
+// names for indexes into the Unicode map
 enum unicode_names {
     // characters for which a UK keyboard has different codes
     COMMERCIAL_AT,
@@ -10,7 +26,7 @@ enum unicode_names {
     VERTICAL_LINE,
 
 #ifdef CADET_ALPHAS
-    // Symbols from the Space Cadet keyboard
+    // symbols from the Space Cadet keyboard
     LOGICAL_AND,
     LOGICAL_OR,
     INTERSECTION,
@@ -40,6 +56,7 @@ enum unicode_names {
 #endif
 };
 
+// names for the corresponding keycodes
 #define UM_AT   UM(COMMERCIAL_AT)
 #define UM_HASH UM(NUMBER_SIGN)
 #define UM_DQUO UM(QUOTATION_MARK)
@@ -75,3 +92,6 @@ enum unicode_names {
 #define UM_LEQL UM(LESS_THAN_OR_EQUAL_TO)
 #define UM_GEQL UM(GREATER_THAN_OR_EQUAL_TO)
 #endif
+
+// Enables/disables the overrides that send keycodes for a UK keyboard.
+extern void set_send_uk_codes(bool value);

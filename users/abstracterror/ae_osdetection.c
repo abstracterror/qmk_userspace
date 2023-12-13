@@ -1,8 +1,7 @@
 #include QMK_KEYBOARD_H
 #include "os_detection.h"
 #include <tmk_core/protocol/usb_device_state.h>
-
-#include "ae_keyoverrides.h"
+#include "abstracterror.h"
 
 uint32_t os_detection_timeout(uint32_t trigger_time, void *cb_arg) {
     switch (detected_host_os()) {
