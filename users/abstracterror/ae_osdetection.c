@@ -24,3 +24,12 @@ void notify_usb_device_state_change_user(enum usb_device_state usb_device_state)
         defer_exec(1000, os_detection_timeout, NULL);
     }
 }
+
+__attribute__ ((weak))
+void keyboard_post_init_keymap(void) {
+}
+
+void keyboard_post_init_user(void) {
+    defer_exec(1000, os_detection_timeout, NULL);
+    keyboard_post_init_keymap();
+}
