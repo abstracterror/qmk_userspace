@@ -2,13 +2,6 @@
 #include "abstracterror.h"
 
 const uint32_t PROGMEM unicode_map[] = {
-    [COMMERCIAL_AT]             = 0x0040,
-    [NUMBER_SIGN]               = 0x0023,
-    [QUOTATION_MARK]            = 0x0022,
-    [TILDE]                     = 0x007E,
-    [REVERSE_SOLIDUS]           = 0x005C,
-    [VERTICAL_LINE]             = 0x007C,
-
 #ifdef CADET_ALPHAS
     [LOGICAL_AND]               = 0x2227,
     [LOGICAL_OR]                = 0x2228,
