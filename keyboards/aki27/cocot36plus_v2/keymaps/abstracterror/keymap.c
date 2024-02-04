@@ -27,15 +27,15 @@ enum layer_names {
     _MOUSE,
     _LSYM,
     _TSYM,
-    _NAV,
-    _UNDO
+    _NAV
 };
 
-#define LT_F    LT(_FUN,  KC_F)
-#define LT_P    LT(_RSYM, KC_P)
-#define LT_Z    LT(_UNDO, KC_Z)
-#define LT_TAB  LT(_NUM,  KC_TAB)
-#define LT_SPC  LT(_NAV,  KC_SPC)
+#define LT_F    LT(_FUN,   KC_F)
+#define LT_P    LT(_RSYM,  KC_P)
+#define LT_Z    LT(_MOUSE, KC_Z)
+#define LT_TAB  LT(_NUM,   KC_TAB)
+#define LT_SPC  LT(_NAV,   KC_SPC)
+#define LT_0    LT(_NAV,   KC_0)
 #define MO_LSYM MO(_LSYM)
 #define MO_TSYM MO(_TSYM)
 
@@ -72,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, KC_4,    KC_5,    KC_6,    _______,
         KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX,          XXXXXXX, KC_1,    KC_2,    KC_3,    KC_BSLS,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, KC_7,    KC_8,    KC_9,    KC_PIPE,
-                          XXXXXXX, XXXXXXX, _______,          KC_0,    MO_TSYM, XXXXXXX
+                          XXXXXXX, XXXXXXX, _______,          LT_0,    MO_TSYM, XXXXXXX
     ),
 
     [_RSYM] = LAYOUT(
@@ -83,15 +83,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_MOUSE] = LAYOUT(
-        KC_ESC,  XXXXXXX, KC_LGUI, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, KC_LGUI, XXXXXXX, XXXXXXX,
-        KC_LCTL, KC_BTN2, KC_LALT, KC_BTN1, XXXXXXX,          XXXXXXX, KC_BTN1, KC_LALT, KC_BTN2, KC_LCTL,
-        XXXXXXX, XXXXXXX, KC_BTN3, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, KC_BTN3, XXXXXXX, XXXXXXX,
-                          KC_ESC,  SCRL_MO, KC_LSFT,          KC_LSFT, SCRL_MO, XXXXXXX
+        KC_ESC,  _______, _______, _______, _______,          _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______,
+                          KC_BTN2, SCRL_MO, KC_BTN1,          _______, _______, _______
     ),
 
     [_LSYM] = LAYOUT(
         KC_COLN, KC_PLUS, KC_UNDS, KC_DQUO, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        XXXXXXX, KC_EQL,  KC_MINS, KC_QUOT, XXXXXXX,          XXXXXXX, KC_LALT, KC_LGUI, KC_LSFT, KC_LGUI,
+        XXXXXXX, KC_EQL,  KC_MINS, KC_QUOT, XXXXXXX,          XXXXXXX, KC_LALT, KC_LGUI, KC_LSFT, KC_LCTL,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                           XXXXXXX, MO_TSYM, _______,          XXXXXXX, XXXXXXX, XXXXXXX
     ),
@@ -109,13 +109,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_INS,
                           XXXXXXX, XXXXXXX, _______,          XXXXXXX, XXXXXXX, XXXXXXX
     ),
-
-    [_UNDO] = LAYOUT(
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                          XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX
-    ),
 };
 
 
@@ -123,14 +116,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
     [_BASE]  = { ENCODER_CCW_CW(PREVIOUS_TASK, NEXT_TASK) },
-    [_FUN]   = { ENCODER_CCW_CW(XXXXXXX, XXXXXXX) },
+    [_FUN]   = { ENCODER_CCW_CW(UNDO,    REDO) },
     [_NUM]   = { ENCODER_CCW_CW(KC_PGUP, KC_PGDN) },
     [_RSYM]  = { ENCODER_CCW_CW(XXXXXXX, XXXXXXX) },
     [_MOUSE] = { ENCODER_CCW_CW(_______, _______) },
     [_LSYM]  = { ENCODER_CCW_CW(XXXXXXX, XXXXXXX) },
     [_TSYM]  = { ENCODER_CCW_CW(XXXXXXX, XXXXXXX) },
     [_NAV]   = { ENCODER_CCW_CW(XXXXXXX, XXXXXXX) },
-    [_UNDO]  = { ENCODER_CCW_CW(UNDO,    REDO)    },
 };
 #endif
 
@@ -153,10 +145,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
     case _NUM:
         cocot_set_scroll_mode(true);
-        state = remove_auto_mouse_layer(state, false);
-        set_auto_mouse_enable(false);
-        break;
-    case _UNDO:
         state = remove_auto_mouse_layer(state, false);
         set_auto_mouse_enable(false);
         break;
