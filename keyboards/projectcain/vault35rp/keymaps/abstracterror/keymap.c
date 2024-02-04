@@ -39,11 +39,13 @@ enum layer_names {
 #define MT_S    MT(MOD_LSFT, KC_S)
 #define MT_D    MT(MOD_LGUI, KC_D)
 #define MT_F    MT(MOD_LALT, KC_F)
+#define MT_Z    MT(MOD_LSFT, KC_Z)
 
 #define MT_J    MT(MOD_LALT, KC_J)
 #define MT_K    MT(MOD_LGUI, KC_K)
 #define MT_L    MT(MOD_LSFT, KC_L)
 #define MT_SCLN MT(MOD_LCTL, KC_SCLN)
+#define MT_SLSH MT(MOD_LSFT, KC_SLSH)
 
 #define MT_ESC  MT(MOD_LCTL | MOD_LSFT | MOD_LGUI, KC_ESC)
 #define MT_CAPS MT(MOD_LCTL, KC_CAPS)
@@ -53,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
         KC_Q,    KC_W,    LT_E,    LT_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
         MT_A,    MT_S,    MT_D,    MT_F,    KC_G,    KC_H,    MT_J,    MT_K,    MT_L,    MT_SCLN,
-        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
+        MT_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  MT_SLSH,
                  MT_ESC,  LT_TAB,  KC_LSFT,     XXXXXXX,      LT_SPC,  MO_LSYM, KC_ENT
     ),
 
