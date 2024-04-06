@@ -77,11 +77,9 @@ const key_override_t uk_grave_override = uk_shifted_key_override(KC_GRAVE, UK_TI
 const key_override_t uk_hash_override  = uk_simple_key_override(KC_HASH, UK_HASH);
 const key_override_t uk_bsls_override  = uk_simple_key_override(KC_BSLS, UK_BSLS);
 
-/*
 // Keys where the shifted version appears in my keymaps, but that requires a
 // different keycode on a UK keyboard. For these we use a macro to try to avoid
 // problems with Microsoft Remote Desktop dropping modifiers.
-*/
 const key_override_t uk_at_override    = uk_action_key_override(KC_AT,   &uk_at_action);
 const key_override_t uk_dquo_override  = uk_action_key_override(KC_DQUO, &uk_dquo_action);
 const key_override_t uk_tild_override  = uk_action_key_override(KC_TILD, &uk_tilde_action);
