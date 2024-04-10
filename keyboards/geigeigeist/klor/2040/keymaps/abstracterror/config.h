@@ -13,6 +13,9 @@
 #undef DRV2605L_GREETING
 #define DRV2605L_GREETING DRV2605L_EFFECT_SOFT_FUZZ_60
 
+// use less vigorous continuous haptic feedback by default (when enabled)
+#define HAPTIC_DEFAULT_MODE DRV2605L_EFFECT_SOFT_BUMP_100
+
 // adjust config for my encoders
 #define ENCODER_DIRECTION_FLIP
 #undef ENCODER_RESOLUTION
