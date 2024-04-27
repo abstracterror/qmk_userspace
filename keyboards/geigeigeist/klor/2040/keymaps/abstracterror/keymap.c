@@ -43,6 +43,8 @@ enum custom_keycodes {
 #define MT_ESC  MT(MOD_LCTL | MOD_LSFT | MOD_LGUI, KC_ESC)
 #define MT_CAPS MT(MOD_LCTL, KC_CAPS)
 
+#define RGB_RMD RGB_MODE_REVERSE
+
 #ifdef AUDIO_ENABLE
   #define WINXP_SOUND W__NOTE(_DS6), Q__NOTE(_DS5), H__NOTE(_AS5), H__NOTE(_GS5), H__NOTE(_DS5), H__NOTE(_DS6), H__NOTE(_AS5)
   #define MAC_SOUND S__NOTE(_CS5), B__NOTE(_C5)
@@ -90,8 +92,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_TSYM] = LAYOUT_saegewerk(
         KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_GRV,  KC_TILD,
-        KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX,                   RGB_MOD, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI,
-        QK_BOOT, HF_RST,  XXXXXXX, XXXXXXX, XXXXXXX, KC_MUTE, KC_MPLY, HF_PREV, HF_NEXT, OS_SWAP, HF_TOGG, AU_TOGG,
+        KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, AU_TOGG,                   RGB_MOD, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI,
+        QK_BOOT, HF_RST,  HF_TOGG, HF_PREV, HF_NEXT, KC_MUTE, KC_MPLY, RGB_RMD, XXXXXXX, RGB_HUD, RGB_SAD, RGB_VAD,
                           XXXXXXX, XXXXXXX, _______,                   XXXXXXX, XXXXXXX, XXXXXXX
     ),
 
