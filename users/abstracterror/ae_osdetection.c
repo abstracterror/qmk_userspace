@@ -1,10 +1,17 @@
 #include QMK_KEYBOARD_H
-#include "os_detection.h"
-#include <tmk_core/protocol/usb_device_state.h>
 #include "abstracterror.h"
 
-uint32_t os_detection_timeout(uint32_t trigger_time, void *cb_arg) {
-    switch (detected_host_os()) {
+__attribute__ ((weak))
+bool process_detected_host_os_keymap(os_variant_t detected_os) {
+    return true;
+}
+
+bool process_detected_host_os_user(os_variant_t detected_os) {
+    if (!process_detected_host_os_keymap(detected_os)) {
+        return false;
+    }
+
+    switch (detected_os) {
         case OS_IOS:
         case OS_MACOS:
             set_unicode_input_mode(UNICODE_MODE_MACOS);
@@ -15,21 +22,6 @@ uint32_t os_detection_timeout(uint32_t trigger_time, void *cb_arg) {
             set_send_uk_codes(true);
             break;
     }
-    return 0;
-}
 
-void notify_usb_device_state_change_user(enum usb_device_state usb_device_state) {
-    if (usb_device_state == USB_DEVICE_STATE_INIT) {
-        erase_wlength_data();
-        defer_exec(1000, os_detection_timeout, NULL);
-    }
-}
-
-__attribute__ ((weak))
-void keyboard_post_init_keymap(void) {
-}
-
-void keyboard_post_init_user(void) {
-    defer_exec(1000, os_detection_timeout, NULL);
-    keyboard_post_init_keymap();
+    return true;
 }
