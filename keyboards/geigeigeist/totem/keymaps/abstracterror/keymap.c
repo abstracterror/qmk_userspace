@@ -1,6 +1,5 @@
 #include QMK_KEYBOARD_H
 #include "g/keymap_combo.h"
-#include "totem.h"
 
 enum layer_names {
     _BASE,
