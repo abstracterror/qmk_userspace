@@ -5,6 +5,7 @@
         ["projectcain/vault35rp", "abstracterror"],
         ["geigeigeist/klor/2040", "abstracterror"],
         ["geigeigeist/totem", "abstracterror"],
-        ["jlw/bruce_the_keyboard", "abstracterror"]
+        ["jlw/bruce_the_keyboard", "abstracterror"],
+        ["sporkus/le_chiffre_32", "abstracterror"]
     ]
 }
