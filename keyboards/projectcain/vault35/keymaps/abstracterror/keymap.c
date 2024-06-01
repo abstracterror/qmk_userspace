@@ -52,52 +52,52 @@ enum layer_names {
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_BASE] = LAYOUT(
+    [_BASE] = LAYOUT_split_4space(
         KC_Q,    KC_W,    LT_E,    LT_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
         MT_A,    MT_S,    MT_D,    MT_F,    KC_G,    KC_H,    MT_J,    MT_K,    MT_L,    MT_SCLN,
         MT_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  MT_SLSH,
-                 MT_ESC,  LT_TAB,  KC_LSFT,     XXXXXXX,      LT_SPC,  MO_LSYM, KC_ENT
+                          MT_ESC,  LT_TAB,  KC_LSFT, LT_SPC,  MO_LSYM, KC_ENT
     ),
 
-    [_FUN] = LAYOUT(
+    [_FUN] = LAYOUT_split_4space(
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_F4,   KC_F5,   KC_F6,   XXXXXXX, XXXXXXX,
         KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX, XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F12,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_F7,   KC_F8,   KC_F9,   XXXXXXX,
-                 XXXXXXX, XXXXXXX, _______,     XXXXXXX,      KC_F10,  KC_F11,  XXXXXXX
+                          XXXXXXX, XXXXXXX, _______, KC_F10,  KC_F11,  XXXXXXX
     ),
 
-    [_NUM] = LAYOUT(
+    [_NUM] = LAYOUT_split_4space(
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_4,    KC_5,    KC_6,    _______, XXXXXXX,
         KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX, XXXXXXX, KC_1,    KC_2,    KC_3,    KC_BSLS,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_7,    KC_8,    KC_9,    KC_PIPE,
-                 XXXXXXX, XXXXXXX, _______,     XXXXXXX,      LT_0,    MO_TSYM, XXXXXXX
+                          XXXXXXX, XXXXXXX, _______, LT_0,    MO_TSYM, XXXXXXX
     ),
 
-    [_RSYM] = LAYOUT(
+    [_RSYM] = LAYOUT_split_4space(
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_DLR,  KC_PERC, KC_CIRC, XXXXXXX, XXXXXXX,
         KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX, XXXXXXX, KC_EXLM, KC_AT,   KC_HASH, XXXXXXX,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_AMPR, KC_ASTR, KC_GRV,  XXXXXXX,
-                 XXXXXXX, XXXXXXX, _______,     XXXXXXX,      KC_TILD, XXXXXXX, XXXXXXX
+                          XXXXXXX, XXXXXXX, _______, KC_TILD, XXXXXXX, XXXXXXX
     ),
 
-    [_LSYM] = LAYOUT(
+    [_LSYM] = LAYOUT_split_4space(
         KC_COLN, KC_PLUS, KC_UNDS, KC_DQUO, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, KC_EQL,  KC_MINS, KC_QUOT, XXXXXXX, XXXXXXX, KC_LALT, KC_LGUI, KC_LSFT, KC_LCTL,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                 XXXXXXX, MO_TSYM, _______,     XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX
+                          XXXXXXX, MO_TSYM, _______, XXXXXXX, XXXXXXX, XXXXXXX
     ),
 
-    [_TSYM] = LAYOUT(
+    [_TSYM] = LAYOUT_split_4space(
         KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_GRV,  KC_TILD, XXXXXXX,
         KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX, RGB_MOD, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI,
         QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                 XXXXXXX, XXXXXXX, _______,     XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX
+                          XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX
     ),
 
-    [_NAV] = LAYOUT(
+    [_NAV] = LAYOUT_split_4space(
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BSPC, KC_DEL, KC_DEL,
         MT_CAPS, KC_LSFT, KC_LGUI, KC_LALT, KC_ESC,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_ENT,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_INS,
-                 XXXXXXX, XXXXXXX, _______,     XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX
+                          XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX
     ),
 };
