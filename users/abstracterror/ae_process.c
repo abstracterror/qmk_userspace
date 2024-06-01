@@ -1,5 +1,4 @@
-#include QMK_KEYBOARD_H
-#include "os_detection.h"
+#include "quantum.h"
 #include "abstracterror.h"
 
 bool apple_os(void) {
@@ -149,6 +148,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case REDO:
             if (record->event.pressed) {
                 tap_undo(keycode == REDO);
+            }
+            return false;
+
+        case UK_TOGG:
+            if (record->event.pressed) {
+                toggle_send_uk_codes();
             }
             return false;
 

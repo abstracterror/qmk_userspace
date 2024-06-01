@@ -1,4 +1,4 @@
-#include QMK_KEYBOARD_H
+#include "quantum.h"
 #include "abstracterror.h"
 
 __attribute__ ((weak))

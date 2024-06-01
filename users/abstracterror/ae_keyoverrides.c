@@ -1,4 +1,4 @@
-#include QMK_KEYBOARD_H
+#include "quantum.h"
 #include "keymap_extras/keymap_uk.h"
 #include "abstracterror.h"
 
@@ -29,6 +29,10 @@ static bool send_uk_codes = false;
 
 void set_send_uk_codes(bool value) {
     send_uk_codes = value;
+}
+
+void toggle_send_uk_codes() {
+    send_uk_codes = !send_uk_codes;
 }
 
 bool uk_at_action(bool activated, void *context) {

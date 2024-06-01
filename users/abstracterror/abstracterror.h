@@ -4,6 +4,7 @@
 enum userspace_keycodes {
     UNDO = SAFE_RANGE,
     REDO,
+    UK_TOGG,
 
 #ifdef TASK_SWITCHING
     NEXT_TASK,
@@ -95,3 +96,4 @@ enum unicode_names {
 
 // Enables/disables the overrides that send keycodes for a UK keyboard.
 extern void set_send_uk_codes(bool value);
+extern void toggle_send_uk_codes(void);
