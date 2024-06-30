@@ -94,6 +94,22 @@ enum unicode_names {
 #define UM_GEQL UM(GREATER_THAN_OR_EQUAL_TO)
 #endif
 
+// tapdance
+typedef struct {
+    uint16_t kc;
+    uint8_t layer;
+} ae_tap_dance_layer_tap_t;
+
+#define ACTION_TAP_DANCE_LAYER_TAP(layer, kc) \
+    { .fn = { NULL, ae_tap_dance_layer_tap_finished, ae_tap_dance_layer_tap_reset }, .user_data = (void *)&((ae_tap_dance_layer_tap_t){kc, layer}) }
+
+extern void ae_tap_dance_layer_tap_finished(tap_dance_state_t *state, void *user_data);
+extern void ae_tap_dance_layer_tap_reset(tap_dance_state_t *state, void *user_data);
+
 // Enables/disables the overrides that send keycodes for a UK keyboard.
 extern void set_send_uk_codes(bool value);
 extern void toggle_send_uk_codes(void);
+
+extern void ae_tap_code(uint16_t code);
+extern void ae_register_code(uint16_t code);
+extern void ae_unregister_code(uint16_t code);

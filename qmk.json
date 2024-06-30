@@ -6,6 +6,7 @@
         ["geigeigeist/klor/rp2040", "abstracterror"],
         ["geigeigeist/totem", "abstracterror"],
         ["jlw/bruce_the_keyboard", "abstracterror"],
-        ["sporkus/le_chiffre_32", "abstracterror"]
+        ["sporkus/le_chiffre_32", "abstracterror"],
+        ["weteor/grumpy", "abstracterror"]
     ]
 }

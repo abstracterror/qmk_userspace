@@ -71,6 +71,100 @@ bool uk_pipe_action(bool activated, void *context) {
     return false;
 }
 
+void ae_tap_code(uint16_t code) {
+    if (!send_uk_codes) {
+        tap_code16(code);
+    } else {
+        switch (code) {
+            case KC_AT:
+                uk_at_action(true, NULL);
+                uk_at_action(false, NULL);
+                break;
+            case KC_BSLS:
+                tap_code16(UK_BSLS);
+                break;
+            case KC_HASH:
+                tap_code16(UK_HASH);
+                break;
+            case KC_DQUO:
+                uk_dquo_action(true, NULL);
+                uk_dquo_action(false, NULL);
+                break;
+            case KC_TILD:
+                uk_tilde_action(true, NULL);
+                uk_tilde_action(false, NULL);
+                break;
+            case KC_PIPE:
+                uk_pipe_action(true, NULL);
+                uk_pipe_action(false, NULL);
+                break;
+            default:
+                tap_code16(code);
+                break;
+        }
+    }
+}
+
+void ae_register_code(uint16_t code) {
+    if (!send_uk_codes) {
+        register_code16(code);
+    } else {
+        switch (code) {
+            case KC_AT:
+                uk_at_action(true, NULL);
+                break;
+            case KC_BSLS:
+                register_code16(UK_BSLS);
+                break;
+            case KC_HASH:
+                register_code16(UK_HASH);
+                break;
+            case KC_DQUO:
+                uk_dquo_action(true, NULL);
+                break;
+            case KC_TILD:
+                uk_tilde_action(true, NULL);
+                break;
+            case KC_PIPE:
+                uk_pipe_action(true, NULL);
+                break;
+            default:
+                register_code16(code);
+                break;
+        }
+    }
+}
+
+void ae_unregister_code(uint16_t code) {
+    if (!send_uk_codes) {
+        unregister_code16(code);
+    } else {
+        switch (code) {
+            case KC_AT:
+                uk_at_action(false, NULL);
+                break;
+            case KC_BSLS:
+                unregister_code16(UK_BSLS);
+                break;
+            case KC_HASH:
+                unregister_code16(UK_HASH);
+                break;
+            case KC_DQUO:
+                uk_dquo_action(false, NULL);
+                break;
+            case KC_TILD:
+                uk_tilde_action(false, NULL);
+                break;
+            case KC_PIPE:
+                uk_pipe_action(false, NULL);
+                break;
+            default:
+                unregister_code16(code);
+                break;
+        }
+    }
+}
+
 // Keys where the shifted version requires a different keycode on a UK keyboard.
 const key_override_t uk_two_override   = uk_shifted_key_override(KC_2,     UK_AT);
 const key_override_t uk_three_override = uk_shifted_key_override(KC_3,     UK_HASH);
