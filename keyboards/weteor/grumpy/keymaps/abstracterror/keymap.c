@@ -15,7 +15,6 @@ enum tap_dance_names {
     TD_LT_TILD
 };
 
-
 #define LT_W    LT(_NUM,   KC_W)
 #define LT_F    LT(_FUN,   KC_F)
 #define LT_P    LT(_RSYM,  KC_P)

@@ -1,5 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "g/keymap_combo.h"
+#include "abstracterror.h"
 
 enum layer_names {
     _BASE,
@@ -11,11 +12,17 @@ enum layer_names {
     _NAV
 };
 
+enum tapdance_names {
+    TD_LT_TILD
+};
+
 #define LT_F    LT(_FUN,   KC_F)
 #define LT_P    LT(_RSYM,  KC_P)
 #define LT_TAB  LT(_NUM,   KC_TAB)
 #define LT_SPC  LT(_NAV,   KC_SPC)
 #define LT_0    LT(_NAV,   KC_0)
+#define LT_F10  LT(_NAV,   KC_F10)
+#define LT_TILD TD(TD_LT_TILD)
 #define MO_LSYM MO(_LSYM)
 #define MO_TSYM MO(_TSYM)
 
@@ -32,6 +39,10 @@ enum layer_names {
 #define MT_ESC  MT(MOD_LCTL | MOD_LSFT | MOD_LGUI, KC_ESC)
 #define MT_CAPS MT(MOD_LCTL, KC_CAPS)
 
+tap_dance_action_t tap_dance_actions[] = {
+    [TD_LT_TILD] = ACTION_TAP_DANCE_LAYER_TAP(_NAV, KC_TILD)
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_BASE] = LAYOUT(
@@ -45,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, KC_F4,   KC_F5,   KC_F6,   XXXXXXX,
                  KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX,    XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F12,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, KC_F7,   KC_F8,   KC_F9,   XXXXXXX, XXXXXXX,
-                                   XXXXXXX, XXXXXXX, _______,    KC_F10,  KC_F11,  XXXXXXX
+                                   XXXXXXX, XXXXXXX, _______,    LT_F10,  KC_F11,  XXXXXXX
     ),
 
     [_NUM] = LAYOUT(
@@ -59,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, KC_DLR,  KC_PERC, KC_CIRC, XXXXXXX,
                  KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX,    XXXXXXX, KC_EXLM, KC_AT,   KC_HASH, XXXXXXX,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, KC_AMPR, KC_ASTR, KC_GRV,  XXXXXXX, XXXXXXX,
-                                   XXXXXXX, XXXXXXX, _______,    KC_TILD, XXXXXXX, XXXXXXX
+                                   XXXXXXX, XXXXXXX, _______,    LT_TILD, XXXXXXX, XXXXXXX
     ),
 
     [_LSYM] = LAYOUT(
@@ -72,8 +83,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_TSYM] = LAYOUT(
                  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,    KC_CIRC, KC_AMPR, KC_ASTR, KC_GRV,  KC_TILD,
                  KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        XXXXXXX, QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                                   XXXXXXX, XXXXXXX, _______,    XXXXXXX, XXXXXXX, XXXXXXX
+        XXXXXXX, QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, UK_TOGG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                                   XXXXXXX, XXXXXXX, _______,    _______, XXXXXXX, XXXXXXX
     ),
 
     [_NAV] = LAYOUT(
@@ -96,4 +107,13 @@ void keyboard_pre_init_user(void) {
     // turn off the blue user-addressable LED (GPIO 25)
     setPinOutput(25);
     writePinHigh(25);
+}
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT_TILD:
+            return 175;
+        default:
+            return TAPPING_TERM;
+    }
 }
