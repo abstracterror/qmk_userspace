@@ -15,10 +15,10 @@ enum tap_dance_names {
     TD_LT_TILD
 };
 
-#define LT_W    LT(_NUM,   KC_W)
 #define LT_F    LT(_FUN,   KC_F)
 #define LT_P    LT(_RSYM,  KC_P)
 #define LT_U    LT(_LSYM,  KC_U)
+#define LT_TAB  LT(_NUM,   KC_TAB)
 #define LT_SPC  LT(_NAV,   KC_SPC)
 #define LT_0    LT(_NAV,   KC_0)
 #define LT_F10  LT(_NAV,   KC_F10)
@@ -43,9 +43,9 @@ tap_dance_action_t tap_dance_actions[] = {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_BASE] = LAYOUT(
-        KC_Q,    LT_W,    LT_F,    LT_P,    KC_B,       KC_J,    KC_L,    LT_U,    KC_Y,    KC_SCLN,
+        KC_Q,    KC_W,    LT_F,    LT_P,    KC_B,       KC_J,    KC_L,    LT_U,    KC_Y,    KC_SCLN,
         MT_A,    MT_R,    MT_S,    MT_T,    KC_G,       KC_M,    MT_N,    MT_E,    MT_I,    MT_O,
-        KC_Z,    KC_X,    KC_C,    KC_D,    KC_LSFT,    LT_SPC,  KC_H,    KC_COMM, KC_DOT,  KC_SLSH
+        KC_Z,    KC_X,    KC_C,    KC_D,    LT_TAB,     LT_SPC,  KC_H,    KC_COMM, KC_DOT,  KC_SLSH
     ),
 
     [_FUN] = LAYOUT(
@@ -57,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_NUM] = LAYOUT(
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, KC_4,    KC_5,    KC_6,    _______,
         KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX,    XXXXXXX, KC_1,    KC_2,    KC_3,    KC_BSLS,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    LT_0,    KC_7,    KC_8,    KC_9,    KC_PIPE
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,    LT_0,    KC_7,    KC_8,    KC_9,    KC_PIPE
     ),
 
     [_RSYM] = LAYOUT(
@@ -75,6 +75,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_NAV] = LAYOUT(
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    KC_HOME, XXXXXXX, XXXXXXX, KC_BSPC, KC_DEL,
         MT_CAPS, KC_LSFT, KC_LGUI, KC_LALT, KC_ESC,     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_ENT,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_TAB,     _______, KC_PGDN, KC_PGUP, KC_END,  KC_INS
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,    _______, KC_PGDN, KC_PGUP, KC_END,  KC_INS
     ),
 };
