@@ -88,13 +88,6 @@ bool tilde_action(bool activated, void *context) {
     return false;
 }
 
-bool toggle_caps_word_action(bool activated, void *context) {
-    if (activated) {
-        caps_word_toggle();
-    }
-    return false;
-}
-
 void ae_tap_code(uint16_t code) {
     if (!send_uk_codes) {
         tap_code16(code);
@@ -224,20 +217,6 @@ const key_override_t zero_override = {
     .enabled                = NULL
 };
 
-// Caps-word on shift + space
-const key_override_t shift_space_override = {
-    .trigger_mods           = MOD_BIT(KC_LSFT),
-    .layers                 = ~0,
-    .suppressed_mods        = MOD_BIT(KC_LSFT),
-    .options                = ko_options_default,
-    .negative_mod_mask      = ~MOD_BIT(KC_LSFT),
-    .custom_action          = toggle_caps_word_action,
-    .context                = NULL,
-    .trigger                = LT_SPC,
-    .replacement            = KC_NO,
-    .enabled                = NULL
-};
-
 const key_override_t **key_overrides = (const key_override_t *[]){
     &uk_two_override,
     &uk_three_override,
@@ -254,8 +233,6 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 
     &nine_override,
     &zero_override,
-
-    &shift_space_override,
 
     NULL,
 };

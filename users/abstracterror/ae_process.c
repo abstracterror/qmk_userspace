@@ -201,6 +201,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return true;
 
+        case LT_SPC:
+            if (record->tap.count &&
+                record->event.pressed &&
+                get_mods() & MOD_BIT(KC_LSFT)
+            ) {
+                caps_word_toggle();
+                return false;
+            }
+            return true;
+
         default:
             return true;
     }
