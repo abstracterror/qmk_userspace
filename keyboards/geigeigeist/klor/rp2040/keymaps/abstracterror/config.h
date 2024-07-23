@@ -1,5 +1,7 @@
 #pragma once
 
+#define MULTIPLE_KEYS_PER_THUMB
+
 #define NO_ACTION_ONESHOT
 #define NO_MUSIC_MODE
 

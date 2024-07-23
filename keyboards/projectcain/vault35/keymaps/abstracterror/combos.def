@@ -1,9 +1,0 @@
-//   name     result   chord keys
-COMB(QW_ESC,  KC_ESC,  KC_Q,        KC_W)
-
-COMB(WS_LBRC, KC_LBRC, KC_W,        LSFT_T(KC_S))
-COMB(ED_LCBR, KC_LCBR, LT(1, KC_E), LGUI_T(KC_D))
-COMB(RF_LPRN, KC_LPRN, LT(3, KC_R), LALT_T(KC_F))
-COMB(UJ_RPRN, KC_RPRN, KC_U,        LALT_T(KC_J))
-COMB(IK_RCBR, KC_RCBR, KC_I,        LGUI_T(KC_K))
-COMB(OL_RBRC, KC_RBRC, KC_O,        LSFT_T(KC_L))

@@ -1,9 +1,98 @@
 #pragma once
 
+enum layer_names {
+    _BASE,
+    _NUM,
+    _FUN,
+    _LSYM,
+
+#ifdef MULTIPLE_KEYS_PER_THUMB
+    _TSYM,
+#endif
+
+    _NAV, // must come after _NUM and _FUN
+
+#ifdef POINTING_DEVICE_ENABLE
+    _MOUSE,
+#endif
+};
+
+// Use in keymaps to get the effect of MT(MOD_LSFT, QK_CAPS_WORD_TOGGLE), if
+// mod-tap supported non-basic keycodes. This relies on code in this user
+// space's `process_record_user` to implement the tap action.
+#define MT_LSFT_CAPS_WORD_TOGGLE MT(MOD_LSFT, KC_CAPS)
+
+// Short keycode aliases
+#define PREVTAB LCTL(LSFT(KC_TAB))
+#define NEXTTAB LCTL(KC_TAB)
+#define CTL_BRK LCTL(KC_BRK)
+#define RGB_RMD RGB_MODE_REVERSE
+
+#if defined(QWERTY_KEYMAP)
+// layer taps
+#   define LT_E     LT(_FUN,     KC_E)
+#   define LT_R     LT(_NUM,     KC_R)
+#   define LT_U     LT(_LSYM,    KC_U)
+// home-row mods
+#   define MT_A     MT(MOD_LCTL, KC_A)
+#   define MT_S     MT(MOD_LSFT, KC_S)
+#   define MT_D     MT(MOD_LGUI, KC_D)
+#   define MT_F     MT(MOD_LALT, KC_F)
+
+#   define MT_J     MT(MOD_LALT, KC_J)
+#   define MT_K     MT(MOD_LGUI, KC_K)
+#   define MT_L     MT(MOD_RSFT, KC_L)
+#   define MT_SCLN  MT(MOD_LCTL, KC_SCLN)
+
+// mod-taps for conventional shift position on QAZ-like layouts
+#   define MT_Z     MT(MOD_LSFT, KC_Z)
+#   define MT_SLSH  MT(MOD_RSFT, KC_SLSH)
+#else
+// layer taps
+#   define LT_F     LT(_FUN,     KC_F)
+#   define LT_P     LT(_NUM,     KC_P)
+#   define LT_L     LT(_LSYM,    KC_L)
+// home-row mods
+#   define MT_A     MT(MOD_LCTL, KC_A)
+#   define MT_R     MT(MOD_LSFT, KC_R)
+#   define MT_S     MT(MOD_LGUI, KC_S)
+#   define MT_T     MT(MOD_LALT, KC_T)
+
+#   define MT_N     MT(MOD_LALT, KC_N)
+#   define MT_E     MT(MOD_LGUI, KC_E)
+#   define MT_I     MT(MOD_RSFT, KC_I)
+#   define MT_O     MT(MOD_LCTL, KC_O)
+#endif
+
+#ifdef POINTING_DEVICE_ENABLE
+#   define LT_Z     LT(_MOUSE,   KC_Z)
+#endif
+
+// right-hand thumb layer tap
+#define LT_SPC  LT(_NAV,   KC_SPC)
+#define LT_0    LT(_NAV,   KC_0)
+#define LT_F10  LT(_NAV,   KC_F10)
+
+// left-hand thumb mod tap
+#define MT_TAB  MT(MOD_LSFT, KC_TAB)
+#define MT_CWT  MT_LSFT_CAPS_WORD_TOGGLE
+
+// extra thumb keys
+#if defined(MULTIPLE_KEYS_PER_THUMB)
+#   define  LT_TAB      LT(_NUM, KC_TAB)
+#   define  MO_LSYM     MO(_LSYM)
+#   define  MO_TSYM     MO(_TSYM)
+#endif
+
+
 // custom keycodes
 enum userspace_keycodes {
     UNDO = SAFE_RANGE,
     REDO,
+    CUT,
+    COPY,
+    PASTE,
+    SEL_ALL,
     UK_TOGG,
 
 #ifdef TASK_SWITCHING
@@ -93,18 +182,6 @@ enum unicode_names {
 #define UM_LEQL UM(LESS_THAN_OR_EQUAL_TO)
 #define UM_GEQL UM(GREATER_THAN_OR_EQUAL_TO)
 #endif
-
-// tapdance
-typedef struct {
-    uint16_t kc;
-    uint8_t layer;
-} ae_tap_dance_layer_tap_t;
-
-#define ACTION_TAP_DANCE_LAYER_TAP(layer, kc) \
-    { .fn = { NULL, ae_tap_dance_layer_tap_finished, ae_tap_dance_layer_tap_reset }, .user_data = (void *)&((ae_tap_dance_layer_tap_t){kc, layer}) }
-
-extern void ae_tap_dance_layer_tap_finished(tap_dance_state_t *state, void *user_data);
-extern void ae_tap_dance_layer_tap_reset(tap_dance_state_t *state, void *user_data);
 
 // Enables/disables the overrides that send keycodes for a UK keyboard.
 extern void set_send_uk_codes(bool value);

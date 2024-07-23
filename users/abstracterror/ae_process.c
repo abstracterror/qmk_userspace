@@ -114,21 +114,47 @@ bool process_record_task_switching(uint16_t keycode, keyrecord_t *record) {
 
 #endif
 
-void tap_undo(bool redo) {
+bool process_os_undo_redo(bool redo, keyrecord_t *record) {
+    uint16_t keycode;
+
     switch (detected_host_os()) {
         case OS_MACOS:
         case OS_IOS:
-            tap_code16(redo ? S(A(KC_Z)) : A(KC_Z));
+            keycode = redo ? S(A(KC_Z)) : A(KC_Z);
             break;
         case OS_LINUX:
             // from the GNOME HIG
-            tap_code16(redo ? S(C(KC_Z)) : C(KC_Z));
+            keycode = redo ? S(C(KC_Z)) : C(KC_Z);
             break;
         case OS_WINDOWS:
-            tap_code16(redo ? C(KC_Y) : C(KC_Z));
+            keycode = redo ? C(KC_Y) : C(KC_Z);
             break;
-        case OS_UNSURE:
+        default:
+            return true;
+    }
+
+    if (record->event.pressed) {
+        register_code16(keycode);
+    } else {
+        unregister_code16(keycode);
+    }
+    return false;
+}
+
+void process_os_command(uint16_t keycode, keyrecord_t *record) {
+    switch (detected_host_os()) {
+        case OS_MACOS:
+        case OS_IOS:
+            keycode = LALT(keycode);
             break;
+        default:
+            keycode = LCTL(keycode);
+            break;
+    }
+    if (record->event.pressed) {
+        register_code16(keycode);
+    } else {
+        unregister_code16(keycode);
     }
 }
 
@@ -146,9 +172,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case UNDO:
         case REDO:
-            if (record->event.pressed) {
-                tap_undo(keycode == REDO);
-            }
+            return process_os_undo_redo(keycode == REDO, record);
+        case CUT:
+            process_os_command(KC_X, record);
+            return false;
+        case COPY:
+            process_os_command(KC_C, record);
+            return false;
+        case PASTE:
+            process_os_command(KC_V, record);
+            return false;
+        case SEL_ALL:
+            process_os_command(KC_A, record);
             return false;
 
         case UK_TOGG:
@@ -157,7 +192,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
 
+        case MT_LSFT_CAPS_WORD_TOGGLE:
+            if (record->tap.count) {
+                if (record->event.pressed) {
+                    caps_word_toggle();
+                }
+                return false;
+            }
+            return true;
+
         default:
             return true;
     }
+}
+
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    if (keycode == MT_TAB || keycode == MT_CWT) {
+        return true;
+    }
+    return false;
 }

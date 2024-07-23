@@ -71,6 +71,30 @@ bool uk_pipe_action(bool activated, void *context) {
     return false;
 }
 
+bool tilde_action(bool activated, void *context) {
+    if (send_uk_codes) {
+        if (activated) {
+            register_code(KC_NUHS);
+        } else {
+            unregister_code(KC_NUHS);
+        }
+    } else {
+        if (activated) {
+            register_code16(KC_TILD);
+        } else {
+            unregister_code16(KC_TILD);
+        }
+    }
+    return false;
+}
+
+bool toggle_caps_word_action(bool activated, void *context) {
+    if (activated) {
+        caps_word_toggle();
+    }
+    return false;
+}
+
 void ae_tap_code(uint16_t code) {
     if (!send_uk_codes) {
         tap_code16(code);
@@ -183,6 +207,36 @@ const key_override_t uk_dquo_override  = uk_action_key_override(KC_DQUO, &uk_dqu
 const key_override_t uk_tild_override  = uk_action_key_override(KC_TILD, &uk_tilde_action);
 const key_override_t uk_pipe_override  = uk_action_key_override(KC_PIPE, &uk_pipe_action);
 
+// Keys where I want a different result from the default on both US and UK keyboards
+const key_override_t nine_override = ko_make_basic(MOD_MASK_SHIFT, KC_9, KC_GRAVE);
+const key_override_t zero_override = {
+    .trigger_mods           = MOD_MASK_SHIFT,
+    .layers                 = ~0,
+    .suppressed_mods        = 0,
+    .options                = ko_option_activation_trigger_down |
+                              ko_option_activation_required_mod_down |
+                              ko_option_one_mod,
+    .negative_mod_mask      = 0,
+    .custom_action          = tilde_action,
+    .context                = NULL,
+    .trigger                = LT(_NAV, KC_0),
+    .replacement            = KC_NO,
+    .enabled                = NULL
+};
+
+// Caps-word on shift + space
+const key_override_t shift_space_override = {
+    .trigger_mods           = MOD_BIT(KC_LSFT),
+    .layers                 = ~0,
+    .suppressed_mods        = MOD_BIT(KC_LSFT),
+    .options                = ko_options_default,
+    .negative_mod_mask      = ~MOD_BIT(KC_LSFT),
+    .custom_action          = toggle_caps_word_action,
+    .context                = NULL,
+    .trigger                = LT_SPC,
+    .replacement            = KC_NO,
+    .enabled                = NULL
+};
 
 const key_override_t **key_overrides = (const key_override_t *[]){
     &uk_two_override,
@@ -197,6 +251,11 @@ const key_override_t **key_overrides = (const key_override_t *[]){
     &uk_dquo_override,
     &uk_tild_override,
     &uk_pipe_override,
+
+    &nine_override,
+    &zero_override,
+
+    &shift_space_override,
 
     NULL,
 };
