@@ -209,8 +209,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     if (keycode == MT_TAB || keycode == MT_CWT) {
         return true;
-    } else if (IS_QK_LAYER_TAP(keycode)) {
-        return true;
     }
     return false;
 }
