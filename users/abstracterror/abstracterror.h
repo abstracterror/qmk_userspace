@@ -28,6 +28,9 @@ enum layer_names {
 #define CTL_BRK LCTL(KC_BRK)
 #define RGB_RMD RGB_MODE_REVERSE
 
+// not the usual MEH, but I swap Command and Option in macOS
+#define AE_MEH S(C(KC_LGUI))
+
 #if defined(QWERTY_KEYMAP)
 // layer taps
 #   define LT_E     LT(_FUN,     KC_E)
@@ -80,6 +83,7 @@ enum layer_names {
 // extra thumb keys
 #if defined(MULTIPLE_KEYS_PER_THUMB)
 #   define  LT_TAB      LT(_NUM, KC_TAB)
+#   define  MO_NUM      MO(_NUM)
 #   define  MO_LSYM     MO(_LSYM)
 #   define  MO_TSYM     MO(_TSYM)
 #endif

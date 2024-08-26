@@ -8,6 +8,7 @@
         ["jlw/bruce_the_keyboard", "abstracterror"],
         ["sporkus/le_chiffre_32", "abstracterror"],
         ["weteor/grumpy", "abstracterror"],
-        ["obabo/littol", "abstracterror"]
+        ["obabo/littol", "abstracterror"],
+        ["bastardkb/charybdis/3x5/v2/splinky_3", "abstracterror"]
     ]
 }
