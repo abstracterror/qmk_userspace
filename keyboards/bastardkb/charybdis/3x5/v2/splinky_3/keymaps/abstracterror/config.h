@@ -1,3 +1,6 @@
+// VBUS detection.
+#define USB_VBUS_PIN GP19
+
 #define MULTIPLE_KEYS_PER_THUMB
 #define POINTING_DEVICE_AUTO_MOUSE_ENABLE
 
