@@ -47,9 +47,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_MOUSE] = LAYOUT(
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, DPI_MOD, XXXXXXX, XXXXXXX, XXXXXXX,
-        KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX,     XXXXXXX, KC_BTN1, KC_BTN2, XXXXXXX, XXXXXXX,
-        XXXXXXX, SNP_TOG, XXXXXXX, KC_BTN3, XXXXXXX,     XXXXXXX, DRGSCRL, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX, DPI_MOD, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, SNP_TOG, XXXXXXX, KC_BTN3, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                           DRGSCRL, KC_BTN1, KC_BTN2,     XXXXXXX, XXXXXXX
     )
 };
@@ -63,6 +63,7 @@ bool is_mouse_record_user(uint16_t keycode, keyrecord_t* record) {
     switch(keycode) {
         case DRGSCRL:
         case SNIPING:
+        case SNP_TOG:
         case S_D_MOD:
         case DPI_MOD:
             return true;
