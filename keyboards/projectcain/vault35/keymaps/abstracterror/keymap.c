@@ -16,6 +16,7 @@
 #include QMK_KEYBOARD_H
 #include "abstracterror.h"
 #include "ae_combos.c"
+#include "ae_keyoverrides.c"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_split_4space(

@@ -6,6 +6,7 @@
 #endif //HAPTIC ENABLE
 #include "abstracterror.h"
 #include "ae_combos.c"
+#include "ae_keyoverrides.c"
 
 enum custom_keycodes {
     OS_SWAP = SAFE_RANGE

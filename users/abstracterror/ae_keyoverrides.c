@@ -217,7 +217,7 @@ const key_override_t zero_override = {
     .enabled                = NULL
 };
 
-const key_override_t **key_overrides = (const key_override_t *[]){
+const key_override_t *key_overrides[] = {
     &uk_two_override,
     &uk_three_override,
     &uk_quote_override,
@@ -233,6 +233,4 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 
     &nine_override,
     &zero_override,
-
-    NULL,
 };
