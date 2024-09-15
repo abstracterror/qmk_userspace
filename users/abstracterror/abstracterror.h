@@ -111,13 +111,7 @@ enum userspace_keycodes {
 
 // names for indexes into the Unicode map
 enum unicode_names {
-    // characters for which a UK keyboard has different codes
-    COMMERCIAL_AT,
-    NUMBER_SIGN,
-    QUOTATION_MARK,
-    TILDE,
-    REVERSE_SOLIDUS,
-    VERTICAL_LINE,
+    POUND_SIGN,
 
 #ifdef CADET_ALPHAS
     // symbols from the Space Cadet keyboard
@@ -151,12 +145,7 @@ enum unicode_names {
 };
 
 // names for the corresponding keycodes
-#define UM_AT   UM(COMMERCIAL_AT)
-#define UM_HASH UM(NUMBER_SIGN)
-#define UM_DQUO UM(QUOTATION_MARK)
-#define UM_TILD UM(TILDE)
-#define UM_BSLS UM(REVERSE_SOLIDUS)
-#define UM_PIPE UM(VERTICAL_BAR)
+#define UM_GBP  UM(POUND_SIGN)
 
 #ifdef CADET_ALPHAS
 #define UM_AND  UM(LOGICAL_AND)

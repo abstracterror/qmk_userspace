@@ -2,6 +2,7 @@
 #include "abstracterror.h"
 
 const uint32_t PROGMEM unicode_map[] = {
+    [POUND_SIGN]                = 0x00A3,
 #ifdef CADET_ALPHAS
     [LOGICAL_AND]               = 0x2227,
     [LOGICAL_OR]                = 0x2228,
