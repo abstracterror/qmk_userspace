@@ -1,5 +1,5 @@
 {
-    "userspace_version": "1.0",
+    "userspace_version": "1.1",
     "build_targets": [
         ["aki27/cocot36plus_v2", "abstracterror"],
         ["projectcain/vault35/rp2040", "abstracterror"],
@@ -9,6 +9,7 @@
         ["sporkus/le_chiffre_32", "abstracterror"],
         ["weteor/grumpy", "abstracterror"],
         ["obabo/littol", "abstracterror"],
-        ["bastardkb/charybdis/3x5/v2/splinky_3", "abstracterror"]
+        ["bastardkb/charybdis/3x5/v2/splinky_3", "abstracterror"],
+        ["kiserdesigns/madeline", "abstracterror"]
     ]
 }
