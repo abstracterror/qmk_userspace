@@ -1,1 +1,1 @@
-#define QWERTY_KEYMAP
+#define QAZ_KEYMAP

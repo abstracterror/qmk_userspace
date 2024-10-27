@@ -31,12 +31,12 @@ enum layer_names {
 // not the usual MEH, but I swap Command and Option in macOS
 #define AE_MEH S(C(KC_LGUI))
 
-#if defined(QWERTY_KEYMAP)
-// layer taps
+#if defined(QWERTY_KEYMAP) || defined(QAZ_KEYMAP)
+    // layer taps
 #   define LT_E     LT(_FUN,     KC_E)
 #   define LT_R     LT(_NUM,     KC_R)
 #   define LT_U     LT(_LSYM,    KC_U)
-// home-row mods
+    // home-row mods
 #   define MT_A     MT(MOD_LCTL, KC_A)
 #   define MT_S     MT(MOD_LSFT, KC_S)
 #   define MT_D     MT(MOD_LGUI, KC_D)
@@ -47,15 +47,22 @@ enum layer_names {
 #   define MT_L     MT(MOD_RSFT, KC_L)
 #   define MT_SCLN  MT(MOD_LCTL, KC_SCLN)
 
-// mod-taps for conventional shift position on QAZ-like layouts
+    // mod-taps for conventional shift position on QAZ-like layouts
 #   define MT_Z     MT(MOD_LSFT, KC_Z)
-#   define MT_SLSH  MT(MOD_RSFT, KC_SLSH)
+#   if defined(QWERTY_KEYMAP)
+        // for things like Vault 35, with 10 keys in R4
+#       define MT_SLSH  MT(MOD_RSFT, KC_SLSH)
+#   else
+        // true QAZ layout
+#       define MT_SLSH  MT(MOD_LCTL, KC_SLSH)
+#       define MT_DOT   MT(MOD_RSFT, KC_DOT)
+#   endif
 #else
-// layer taps
+    // layer taps
 #   define LT_F     LT(_FUN,     KC_F)
 #   define LT_P     LT(_NUM,     KC_P)
 #   define LT_L     LT(_LSYM,    KC_L)
-// home-row mods
+    // home-row mods
 #   define MT_A     MT(MOD_LCTL, KC_A)
 #   define MT_R     MT(MOD_LSFT, KC_R)
 #   define MT_S     MT(MOD_LGUI, KC_S)
@@ -112,6 +119,7 @@ enum userspace_keycodes {
 // names for indexes into the Unicode map
 enum unicode_names {
     POUND_SIGN,
+    EURO_SIGN,
 
 #ifdef CADET_ALPHAS
     // symbols from the Space Cadet keyboard
@@ -146,6 +154,7 @@ enum unicode_names {
 
 // names for the corresponding keycodes
 #define UM_GBP  UM(POUND_SIGN)
+#define UM_EURO UM(EURO_SIGN)
 
 #ifdef CADET_ALPHAS
 #define UM_AND  UM(LOGICAL_AND)

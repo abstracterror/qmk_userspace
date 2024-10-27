@@ -3,6 +3,7 @@
 
 const uint32_t PROGMEM unicode_map[] = {
     [POUND_SIGN]                = 0x00A3,
+    [EURO_SIGN]                 = 0x20AC,
 #ifdef CADET_ALPHAS
     [LOGICAL_AND]               = 0x2227,
     [LOGICAL_OR]                = 0x2228,

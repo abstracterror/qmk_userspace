@@ -2,13 +2,14 @@
 #include "abstracterror.h"
 
 const uint16_t PROGMEM escape_combo[]        = { KC_Q, KC_W, COMBO_END };
-#if defined(QWERTY_KEYMAP)
+#if defined(QWERTY_KEYMAP) || defined(QAZ_KEYMAP)
 const uint16_t PROGMEM left_bracket_combo[]  = { KC_W, MT_S, COMBO_END };
 const uint16_t PROGMEM left_brace_combo[]    = { LT_E, MT_D, COMBO_END };
 const uint16_t PROGMEM left_paren_combo[]    = { LT_R, MT_F, COMBO_END };
 const uint16_t PROGMEM right_paren_combo[]   = { LT_U, MT_J, COMBO_END };
 const uint16_t PROGMEM right_brace_combo[]   = { KC_I, MT_K, COMBO_END };
 const uint16_t PROGMEM right_bracket_combo[] = { KC_O, MT_L, COMBO_END };
+const uint16_t PROGMEM semicolon_combo[]     = { MT_K, MT_L, COMBO_END };
 #else
 const uint16_t PROGMEM left_bracket_combo[]  = { KC_W, MT_R, COMBO_END };
 const uint16_t PROGMEM left_brace_combo[]    = { LT_F, MT_S, COMBO_END };
@@ -30,10 +31,10 @@ combo_t key_combos[] = {
     COMBO(right_paren_combo,   KC_RIGHT_PAREN),
     COMBO(right_brace_combo,   KC_RIGHT_CURLY_BRACE),
     COMBO(right_bracket_combo, KC_RIGHT_BRACKET),
-#if !defined(QWERTY_KEYMAP)
+    COMBO(semicolon_combo,     KC_SCLN),
+#if !defined(QWERTY_KEYMAP) && !defined(QAZ_KEYMAP)
     COMBO(q_combo,             KC_Q),
     COMBO(v_combo,             KC_V),
     COMBO(k_combo,             KC_K),
-    COMBO(semicolon_combo,     KC_SCLN),
 #endif
 };
