@@ -10,6 +10,7 @@
         ["weteor/grumpy", "abstracterror"],
         ["obabo/littol", "abstracterror"],
         ["bastardkb/charybdis/3x5/v2/splinky_3", "abstracterror"],
-        ["kiserdesigns/madeline", "abstracterror"]
+        ["kiserdesigns/madeline", "abstracterror"],
+        ["calvin_mcd/travaulta", "abstracterror"]
     ]
 }
