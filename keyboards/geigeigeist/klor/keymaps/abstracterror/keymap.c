@@ -256,10 +256,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return state;
 }
 
-bool oled_task_kb(void) {
-    if (!oled_task_user()) {
-        return false;
-    }
+bool oled_task_user(void) {
     if (is_keyboard_master()) {  // ────────────────────────── PRIMARY SIDE
 
         // layer status ──────────────────────────────────────────────────┐

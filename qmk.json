@@ -3,7 +3,7 @@
     "build_targets": [
         ["aki27/cocot36plus_v2", "abstracterror"],
         ["projectcain/vault35/rp2040", "abstracterror"],
-        ["geigeigeist/klor/rp2040", "abstracterror"],
+        ["geigeigeist/klor", "abstracterror"],
         ["geigeigeist/totem", "abstracterror"],
         ["jlw/bruce_the_keyboard", "abstracterror"],
         ["sporkus/le_chiffre_32", "abstracterror"],

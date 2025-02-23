@@ -1,5 +1,9 @@
 #pragma once
 
+#define AUDIO_PWM_DRIVER PWMD4
+#define AUDIO_PWM_CHANNEL RP2040_PWM_CHANNEL_B
+#define AUDIO_STATE_TIMER GPTD4
+
 #define MULTIPLE_KEYS_PER_THUMB
 
 #define NO_ACTION_ONESHOT
@@ -8,8 +12,17 @@
 // handedness set in EEPROM
 #define EE_HANDS
 
+// songs from the original KLOR firmware
+#define KLOR_SOUND W__NOTE(_DS0), W__NOTE(_DS1), H__NOTE(_DS2), H__NOTE(_DS3), Q__NOTE(_DS4), Q__NOTE(_DS5), E__NOTE(_DS6), E__NOTE(_DS7), S__NOTE(_DS8), Q__NOTE(_GS0)
+#define STARTUP_SONG SONG(KLOR_SOUND)
+#define BYE_SOUND H__NOTE(_DS4), H__NOTE(_DS3), W__NOTE(_DS1)
+#define GOODBYE_SONG SONG(BYE_SOUND)
+
 // fix startup song when haptics are also enabled
 #define AUDIO_INIT_DELAY
+
+// split haptics
+#define SPLIT_HAPTIC_ENABLE
 
 // use a less vigorous haptic greeting
 #undef DRV2605L_GREETING
