@@ -3,6 +3,12 @@
 #include "ae_combos.c"
 #include "ae_keyoverrides.c"
 
+#ifdef PHOENICIAN_ENABLE
+#define PH_TOG TG(_PHOENICIAN)
+#else
+#define PH_TOG KC_TRANSPARENT
+#endif
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_BASE] = LAYOUT_no_knob(
@@ -11,6 +17,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,       KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,
                                    AE_MEH,  MT_TAB,     LT_SPC,  QK_REP
     ),
+
+#ifdef PHOENICIAN_ENABLE
+    [_PHOENICIAN] = LAYOUT_no_knob(
+        UM_QOF,  UM_WAU,  UM_HE,   UM_ROSH, UM_TAU,     UM_WAU,  UM_WAU,  UM_YOD,  UM_AIN,  UM_PE,
+        UM_ALF,  UM_SHIN, UM_DELT, UM_TET,  UM_GAML,    UM_HET,  UM_YOD,  UM_KAF,  UM_LAMD, KC_SCLN,
+        UM_ZAI,  UM_SEMK, UM_SADE, UM_VAV,  UM_BET,     UM_NUN,  UM_MEM,  _______, _______, _______,
+                                   _______, _______,    _______, _______
+    ),
+#endif
 
     [_NUM] = LAYOUT_no_knob(
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, KC_4,    KC_5,    KC_6,    _______,
@@ -37,6 +52,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, PREVTAB, NEXTTAB, REDO,    CTL_BRK,    XXXXXXX, XXXXXXX, KC_DEL,  KC_BSPC, XXXXXXX,
         KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, KC_ESC,     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_ENT,
         UNDO,    CUT,     COPY,    PASTE,   XXXXXXX,    KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_INS,
-                                   _______, MT_CWT,     _______, _______
+                                   _______, MT_CWT,     _______, PH_TOG
     ),
 };

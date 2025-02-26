@@ -32,4 +32,33 @@ const uint32_t PROGMEM unicode_map[] = {
     [LESS_THAN_OR_EQUAL_TO]     = 0x2264,
     [GREATER_THAN_OR_EQUAL_TO]  = 0x2265,
 #endif
+#ifdef PHOENICIAN_ENABLE
+    [ALF]                       = 0x10900,
+    [BET]                       = 0x10901,
+    [GAML]                      = 0x10902,
+    [DELT]                      = 0x10903,
+    [HE]                        = 0x10904,
+    [WAU]                       = 0x10905,
+    [ZAI]                       = 0x10906,
+    [HET]                       = 0x10907,
+    [TET]                       = 0x10908,
+    [YOD]                       = 0x10909,
+    [KAF]                       = 0x1090A,
+    [LAMD]                      = 0x1090B,
+    [MEM]                       = 0x1090C,
+    [NUN]                       = 0x1090D,
+    [SEMK]                      = 0x1090E,
+    [AIN]                       = 0x1090F,
+    [PE]                        = 0x10910,
+    [SADE]                      = 0x10911,
+    [QOF]                       = 0x10912,
+    [ROSH]                      = 0x10913,
+    [SHIN]                      = 0x10914,
+    [TAU]                       = 0x10915,
+
+// The following is not from the Phoenician alphabet, but appears in
+// KAT Iron's Phoenician alphas kit.
+    [VAV]                       = 0x05D5,   // Hebrew
+
+#endif
 };

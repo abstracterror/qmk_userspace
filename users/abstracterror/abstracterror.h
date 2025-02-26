@@ -2,6 +2,11 @@
 
 enum layer_names {
     _BASE,
+
+#ifdef PHOENICIAN_ENABLE
+    _PHOENICIAN,
+#endif
+
     _NUM,
     _FUN,
     _LSYM,
@@ -150,6 +155,35 @@ enum unicode_names {
     LESS_THAN_OR_EQUAL_TO,
     GREATER_THAN_OR_EQUAL_TO,
 #endif
+
+#ifdef PHOENICIAN_ENABLE
+    ALF,
+    BET,
+    GAML,
+    DELT,
+    HE,
+    WAU,
+    ZAI,
+    HET,
+    TET,
+    YOD,
+    KAF,
+    LAMD,
+    MEM,
+    NUN,
+    SEMK,
+    AIN,
+    PE,
+    SADE,
+    QOF,
+    ROSH,
+    SHIN,
+    TAU,
+
+// The following is not from the Phoenician alphabet, but appears in
+// KAT Iron's Phoenician alphas kit.
+    VAV,
+#endif
 };
 
 // names for the corresponding keycodes
@@ -183,6 +217,35 @@ enum unicode_names {
 #define UM_IDEN UM(IDENTICAL_TO)
 #define UM_LEQL UM(LESS_THAN_OR_EQUAL_TO)
 #define UM_GEQL UM(GREATER_THAN_OR_EQUAL_TO)
+#endif
+
+#ifdef PHOENICIAN_ENABLE
+#define UM_ALF  UM(ALF)
+#define UM_BET  UM(BET)
+#define UM_GAML UM(GAML)
+#define UM_DELT UM(DELT)
+#define UM_HE   UM(HE)
+#define UM_WAU  UM(WAU)
+#define UM_ZAI  UM(ZAI)
+#define UM_HET  UM(HET)
+#define UM_TET  UM(TET)
+#define UM_YOD  UM(YOD)
+#define UM_KAF  UM(KAF)
+#define UM_LAMD UM(LAMD)
+#define UM_MEM  UM(MEM)
+#define UM_NUN  UM(NUN)
+#define UM_SEMK UM(SEMK)
+#define UM_AIN  UM(AIN)
+#define UM_PE   UM(PE)
+#define UM_SADE UM(SADE)
+#define UM_QOF  UM(QOF)
+#define UM_ROSH UM(ROSH)
+#define UM_SHIN UM(SHIN)
+#define UM_TAU  UM(TAU)
+
+// The following is not from the Phoenician alphabet, but appears in
+// KAT Iron's Phoenician alphas kit.
+#define UM_VAV  UM(VAV)
 #endif
 
 // Enables/disables the overrides that send keycodes for a UK keyboard.
