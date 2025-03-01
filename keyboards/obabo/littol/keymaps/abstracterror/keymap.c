@@ -3,6 +3,12 @@
 #include "ae_combos.c"
 #include "ae_keyoverrides.c"
 
+const char PROGMEM chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] = LAYOUT(
+    'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R',
+    'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R',
+    'L', 'L', 'L', 'L', '*',  '*', 'R', 'R', 'R', 'R'
+);
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_BASE] = LAYOUT(

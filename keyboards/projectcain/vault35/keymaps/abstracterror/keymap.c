@@ -18,6 +18,13 @@
 #include "ae_combos.c"
 #include "ae_keyoverrides.c"
 
+const char PROGMEM chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] = LAYOUT_split_4space(
+    'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
+    'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R',
+    'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R',
+              '*', '*', '*',  '*', '*', '*'
+);
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_split_4space(
         KC_Q,    KC_W,    LT_E,    LT_R,    KC_T,    KC_Y,    LT_U,    KC_I,    KC_O,    KC_P,    KC_F12,

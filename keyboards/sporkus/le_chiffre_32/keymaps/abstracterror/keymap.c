@@ -9,6 +9,13 @@
 #define PH_TOG KC_TRANSPARENT
 #endif
 
+const char PROGMEM chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] = LAYOUT_no_knob(
+    'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R',
+    'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R',
+    'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R',
+                       '*', '*',  '*', '*'
+);
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_BASE] = LAYOUT_no_knob(

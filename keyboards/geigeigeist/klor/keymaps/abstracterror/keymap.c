@@ -20,6 +20,13 @@ enum custom_keycodes {
   float mac_song[][2] = SONG(MAC_SOUND);
 #endif // AUDIO_ENABLE
 
+const char PROGMEM chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] = LAYOUT_saegewerk(
+    'L', 'L', 'L', 'L', 'L',            'R', 'R', 'R', 'R', 'R',
+    'L', 'L', 'L', 'L', 'L',            'R', 'R', 'R', 'R', 'R',
+    'L', 'L', 'L', 'L', 'L', '*',  '*', 'R', 'R', 'R', 'R', 'R',
+              '*', '*', '*',            '*', '*', '*'
+);
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_BASE] = LAYOUT_saegewerk(
