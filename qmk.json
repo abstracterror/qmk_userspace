@@ -1,7 +1,7 @@
 {
     "userspace_version": "1.1",
     "build_targets": [
-        ["aki27/cocot36plus_v2", "abstracterror"],
+        ["aki27/cocot36plus/v2", "abstracterror"],
         ["projectcain/vault35/rp2040", "abstracterror"],
         ["geigeigeist/klor", "abstracterror"],
         ["geigeigeist/totem", "abstracterror"],

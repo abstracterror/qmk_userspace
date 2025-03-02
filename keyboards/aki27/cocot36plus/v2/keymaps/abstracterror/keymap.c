@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_TSYM] = LAYOUT(
         KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,          KC_CIRC, KC_AMPR, KC_ASTR, KC_GRV,  KC_TILD,
         KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX,          RGB_MOD, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI,
-        QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, CPI_SW,  SCRL_SW, XXXXXXX, XXXXXXX,
+        QK_BOOT, AM_TOG,  XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, CPI_SW,  SCRL_SW, ROT_L15, ROT_R15,
                           XXXXXXX, XXXXXXX, _______,          _______, XXXXXXX, XXXXXXX
     ),
 
@@ -93,72 +93,6 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 };
 #endif
 
-
-bool is_mouse_record_user(uint16_t keycode, keyrecord_t* record) {
-    switch(keycode) {
-        case KC_LCTL:
-        case KC_LSFT:
-        case KC_LGUI:
-        case KC_LALT:
-        case SCRL_MO:
-            return true;
-        default:
-            return false;
-    }
-}
-
-
-layer_state_t layer_state_set_user(layer_state_t state) {
-    switch (get_highest_layer(state)) {
-    case _NUM:
-        cocot_set_scroll_mode(true);
-        state = remove_auto_mouse_layer(state, false);
-        set_auto_mouse_enable(false);
-        break;
-    default:
-        cocot_set_scroll_mode(false);
-        set_auto_mouse_enable(true);
-        break;
-    }
-  return state;
-};
-
-#ifdef RGB_MATRIX_ENABLE
-
-bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) { 
-    int is_layer = get_highest_layer(layer_state|default_layer_state);  
-    HSV hsv = {0, 255, rgblight_get_val()};
-    if (is_layer == 1) {
-      hsv.h = 11; //CORAL
-    } else if (is_layer == 2)  {
-      hsv.h = 85; //GREEN
-    } else if (is_layer == 3)  {
-      hsv.h = 43; //YELLOW
-    } else if (is_layer == 4)  {
-      hsv.h = 0; //RED
-    } else if (is_layer == 5)  {
-      hsv.h = 191; //PURPLE
-    } else if (is_layer == 6)  {
-      hsv.h = 64; //CHARTREUSE
-    } else if (is_layer == 7)  {
-      hsv.h = 224;
-    } else {
-      hsv.h = 128; //CYAN
-    }
-    RGB rgb = hsv_to_rgb(hsv);
- 
-    for (uint8_t i = led_min; i <= led_max; i++) {
-        if (HAS_FLAGS(g_led_config.flags[i], 0x02)) {
-          rgb_matrix_set_color(i, rgb.r, rgb.g, rgb.b);
-        }
-    }
-    return false;
-};
-
-#endif
-
-
 void pointing_device_init_user(void) {
     set_auto_mouse_layer(_MOUSE);
-    set_auto_mouse_enable(true);
 }
