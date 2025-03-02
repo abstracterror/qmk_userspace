@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_TSYM] = LAYOUT(
         KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,          KC_CIRC, KC_AMPR, KC_ASTR, KC_GRV,  KC_TILD,
-        KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX,          RGB_MOD, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI,
+        KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX,          RM_NEXT, RM_TOGG, RM_HUEU, RM_SATU, RM_VALU,
         QK_BOOT, AM_TOG,  SCRL_IN, XXXXXXX, XXXXXXX,          XXXXXXX, CPI_SW,  SCRL_SW, ROT_L15, ROT_R15,
                           XXXXXXX, XXXXXXX, _______,          _______, XXXXXXX, XXXXXXX
     ),
