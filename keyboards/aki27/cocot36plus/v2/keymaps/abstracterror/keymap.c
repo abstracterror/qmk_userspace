@@ -33,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_Q,    KC_W,    LT_F,    LT_P,    KC_B,             KC_J,    LT_L,    KC_U,    KC_Y,    KC_SCLN,
         MT_A,    MT_R,    MT_S,    MT_T,    KC_G,             KC_M,    MT_N,    MT_E,    MT_I,    MT_O,
         LT_Z,    KC_X,    KC_C,    KC_D,    KC_V,             KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,
-                          XXXXXXX, KC_MEH,  MT_TAB,           LT_SPC,  MO_LSYM, QK_REP
+                          XXXXXXX, AE_MEH,  MT_TAB,           LT_SPC,  MO_LSYM, QK_REP
     ),
 
     [_FUN] = LAYOUT(
@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_TSYM] = LAYOUT(
         KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,          KC_CIRC, KC_AMPR, KC_ASTR, KC_GRV,  KC_TILD,
         KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX,          RM_NEXT, RM_TOGG, RM_HUEU, RM_SATU, RM_VALU,
-        QK_BOOT, AM_TOG,  SCRL_IN, XXXXXXX, XXXXXXX,          XXXXXXX, CPI_SW,  SCRL_SW, ROT_L15, ROT_R15,
+        XXXXXXX, AM_TOG,  SCRL_IN, XXXXXXX, XXXXXXX,          XXXXXXX, CPI_SW,  SCRL_SW, ROT_L15, ROT_R15,
                           XXXXXXX, XXXXXXX, _______,          _______, XXXXXXX, XXXXXXX
     ),
 
