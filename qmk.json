@@ -16,6 +16,7 @@
         ["oldman/endgame/rev6", "abstracterror"],
         ["sporkus/le_chiffre_32", "abstracterror_phoenician"],
         ["aki27/picot_r40", "abstracterror"],
-        ["quark_works/qaz_rp2040", "abstracterror"]
+        ["quark_works/qaz_rp2040", "abstracterror"],
+        ["aki27/picot_o44", "abstracterror"]
     ]
 }
