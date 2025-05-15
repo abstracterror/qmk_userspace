@@ -41,7 +41,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_BASE] = LAYOUT(
-                 KC_ESC,  KC_F1,   KC_F2,   KC_F5,   RM_TOGG, KC_F8,   KC_F10,  KC_F11,  KC_F12,
+                 KC_ESC,  KC_F1,   KC_F2,   KC_F5,   RM_TOGG, KC_F8,   KC_F10,  KC_F11,  KC_BSPC,
         KC_Q,    KC_W,    LT_E,    LT_R,    KC_T,    KC_Y,    LT_U,    KC_I,    KC_O,    KC_P,    KC_F12,
         MT_A,    MT_S,    MT_D,    MT_F,    KC_G,    KC_H,    MT_J,    MT_K,    MT_L,    XXXXXXX, MT_SCLN,
         MT_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  XXXXXXX, MT_SLSH,
