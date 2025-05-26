@@ -7,6 +7,7 @@
 #define HOLD_ON_OTHER_KEY_PRESS
 #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 #define CHORDAL_HOLD
+#define FLOW_TAP_TERM 150
 
 // Unicode support
 #define UNICODE_KEY_MAC KC_LEFT_GUI
