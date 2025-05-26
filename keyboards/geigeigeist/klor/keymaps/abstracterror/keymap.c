@@ -342,7 +342,7 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
               #ifdef HAPTIC_ENABLE
                 drv2605l_pulse(DRV2605L_EFFECT_PULSING_STRONG_1_100);
               #endif // HAPTIC_ENABLE
-            eeconfig_update_keymap(keymap_config.raw);
+            eeconfig_update_keymap(&keymap_config);
             clear_keyboard();  // ──── clear to prevent stuck keys
             return false;
           }
