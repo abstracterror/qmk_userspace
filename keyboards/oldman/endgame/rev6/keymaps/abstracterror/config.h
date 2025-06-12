@@ -1,1 +1,2 @@
 #define MULTIPLE_KEYS_PER_THUMB
+#define AUDIO_VOICES

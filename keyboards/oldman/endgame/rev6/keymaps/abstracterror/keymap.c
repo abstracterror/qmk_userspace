@@ -40,10 +40,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_TSYM] = LAYOUT(
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        AU_TOGG, AU_PREV, AU_NEXT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         RGB_HUI, RGB_SAI, RGB_HUI, RGB_TOG, RGB_MOD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         RGB_HUD, RGB_SAD, RGB_HUD, XXXXXXX, RGB_RMD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        XXXXXXX,                   _______, _______, _______, _______,                   _______
+        CK_TOGG,                   _______, _______, _______, _______,                   _______
     ),
 
     [_NAV] = LAYOUT(
