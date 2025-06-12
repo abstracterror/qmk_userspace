@@ -12,14 +12,13 @@ bool process_detected_host_os_user(os_variant_t detected_os) {
     }
 
     switch (detected_os) {
-        case OS_IOS:
-        case OS_MACOS:
-            set_unicode_input_mode(UNICODE_MODE_MACOS);
-            set_send_uk_codes(false);
-            break;
-        default:
+        case OS_WINDOWS:
             set_unicode_input_mode(UNICODE_MODE_WINDOWS);
             set_send_uk_codes(true);
+            break;
+        default:
+            set_unicode_input_mode(UNICODE_MODE_MACOS);
+            set_send_uk_codes(false);
             break;
     }
 

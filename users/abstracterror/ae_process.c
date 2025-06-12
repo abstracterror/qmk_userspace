@@ -3,11 +3,11 @@
 
 bool apple_os(void) {
     switch (detected_host_os()) {
-        case OS_IOS:
-        case OS_MACOS:
-            return true;
-        default:
+        case OS_WINDOWS:
+        case OS_LINUX:
             return false;
+        default:
+            return true;
     }
 }
 
@@ -118,10 +118,6 @@ bool process_os_undo_redo(bool redo, keyrecord_t *record) {
     uint16_t keycode;
 
     switch (detected_host_os()) {
-        case OS_MACOS:
-        case OS_IOS:
-            keycode = redo ? S(A(KC_Z)) : A(KC_Z);
-            break;
         case OS_LINUX:
             // from the GNOME HIG
             keycode = redo ? S(C(KC_Z)) : C(KC_Z);
@@ -130,6 +126,7 @@ bool process_os_undo_redo(bool redo, keyrecord_t *record) {
             keycode = redo ? C(KC_Y) : C(KC_Z);
             break;
         default:
+            keycode = redo ? S(A(KC_Z)) : A(KC_Z);
             return true;
     }
 
@@ -143,12 +140,12 @@ bool process_os_undo_redo(bool redo, keyrecord_t *record) {
 
 void process_os_command(uint16_t keycode, keyrecord_t *record) {
     switch (detected_host_os()) {
-        case OS_MACOS:
-        case OS_IOS:
-            keycode = LALT(keycode);
+        case OS_WINDOWS:
+        case OS_LINUX:
+            keycode = LCTL(keycode);
             break;
         default:
-            keycode = LCTL(keycode);
+            keycode = LALT(keycode);
             break;
     }
     if (record->event.pressed) {
