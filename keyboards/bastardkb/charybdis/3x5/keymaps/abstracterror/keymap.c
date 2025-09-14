@@ -42,8 +42,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_TSYM] = LAYOUT(
         KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,     KC_CIRC, KC_AMPR, KC_ASTR, KC_GRV,  KC_TILD,
-        KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX,     RGB_MOD, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI,
-        QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     RGB_RMD, XXXXXXX, RGB_HUD, RGB_SAD, RGB_VAD,
+        KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX,     RM_NEXT, RM_TOGG, RM_HUEU, RM_SATU, RM_VALU,
+        QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     RM_PREV, XXXXXXX, RM_HUED, RM_SATD, RM_VALD,
                           XXXXXXX, _______, _______,     _______, _______
     ),
 
@@ -57,8 +57,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_MOUSE] = LAYOUT(
         DPI_MOD, _______, _______, _______, _______,     _______, _______, _______, _______, _______,
         KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, _______,     _______, _______, _______, _______, _______,
-        _______, SNIPING, _______, KC_BTN3, _______,     _______, _______, _______, _______, _______,
-                          DRGSCRL, KC_BTN1, KC_BTN2,     _______, _______
+        _______, SNIPING, _______, MS_BTN3, _______,     _______, _______, _______, _______, _______,
+                          DRGSCRL, MS_BTN1, MS_BTN2,     _______, _______
     )
 };
 

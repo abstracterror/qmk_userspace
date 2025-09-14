@@ -30,7 +30,7 @@ const char PROGMEM chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] = LAYOUT(
 
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-    [_BASE] = { ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN) },
+    [_BASE] = { ENCODER_CCW_CW(MS_WHLU, MS_WHLD) },
     [_FUN]  = { ENCODER_CCW_CW(RM_PREV, RM_NEXT) },
     [_NUM]  = { ENCODER_CCW_CW(RM_HUED, RM_HUEU) },
     [_LSYM] = { ENCODER_CCW_CW(RM_SATD, RM_SATU) },
