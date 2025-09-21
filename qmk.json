@@ -21,6 +21,7 @@
         ["quark_works/acai", "abstracterror"],
         ["projectcain/oracle", "abstracterror"],
         ["aki27/cocot38mini/v2", "abstracterror"],
-        ["ferris/sweep", "abstracterror"]
+        ["ferris/sweep", "abstracterror"],
+        ["waterfowl", "abstracterror"]
     ]
 }
