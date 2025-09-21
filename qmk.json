@@ -20,6 +20,7 @@
         ["aki27/picot_o44", "abstracterror"],
         ["quark_works/acai", "abstracterror"],
         ["projectcain/oracle", "abstracterror"],
-        ["aki27/cocot38mini/v2", "abstracterror"]
+        ["aki27/cocot38mini/v2", "abstracterror"],
+        ["ferris/sweep", "abstracterror"]
     ]
 }
