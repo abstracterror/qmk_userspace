@@ -23,6 +23,7 @@
         ["aki27/cocot38mini/v2", "abstracterror"],
         ["ferris/sweep", "abstracterror"],
         ["waterfowl", "abstracterror"],
-        ["dino/quaziv4n", "abstracterror"]
+        ["dino/quaziv4n", "abstracterror"],
+        ["weteor/qazikat", "abstracterror"]
     ]
 }
