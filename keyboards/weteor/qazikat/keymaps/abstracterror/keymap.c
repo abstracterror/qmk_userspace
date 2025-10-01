@@ -18,6 +18,10 @@
 #include "ae_combos.c"
 #include "ae_keyoverrides.c"
 
+#define INACTIVE_H 20
+#define ACTIVE_H 160
+#define BRIGHTNESS 10
+
 const char PROGMEM chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] = LAYOUT_split_4space(
     'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
     'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
@@ -58,6 +62,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, PREVTAB, NEXTTAB, REDO,    CTL_BRK, XXXXXXX, XXXXXXX, KC_DEL,  KC_BSPC, XXXXXXX, _______,
         KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, KC_ESC,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_ENT,  _______,
         UNDO,    CUT,     COPY,    PASTE,   XXXXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_INS,  _______,
-        _______, _______, _______, MT_CWT,           _______,          _______, _______, _______, _______
+        KC_CAPS, _______, _______, MT_CWT,           _______,          _______, _______, _______, _______
     ),
 };
+
+void keyboard_post_init_user(void) {
+    rgblight_sethsv_range(INACTIVE_H, 200, BRIGHTNESS, 0, 3);
+}
+
+bool led_update_user(led_t led_state) {
+    if (led_state.caps_lock) {
+        rgblight_sethsv_at(ACTIVE_H, 200, BRIGHTNESS, 0);
+    } else {
+        rgblight_sethsv_at(INACTIVE_H, 200, BRIGHTNESS, 0);
+    }
+    return false;
+}
+
+void caps_word_set_user(bool active) {
+    if (active) {
+        rgblight_sethsv_at(ACTIVE_H, 200, BRIGHTNESS, 1);
+    } else {
+        rgblight_sethsv_at(INACTIVE_H, 200, BRIGHTNESS, 1);
+    }
+}
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    uint8_t layer = get_highest_layer(state);
+    rgblight_sethsv_at(INACTIVE_H + (ACTIVE_H - INACTIVE_H) * layer / 4, 200, BRIGHTNESS, 2);
+    return state;
+}

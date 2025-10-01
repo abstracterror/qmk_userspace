@@ -1,1 +1,2 @@
 #define QAZ_KEYMAP
+#define RGBLIGHT_SLEEP
