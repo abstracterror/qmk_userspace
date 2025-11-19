@@ -11,7 +11,7 @@ jobs:
     uses: qmk/.github/.github/workflows/qmk_userspace_build.yml@main
     with:
       qmk_repo: abstracterror/qmk_firmware
-      qmk_ref: abstracterror-local-changes
+      qmk_ref: abstracterror-dev
 
   publish:
     name: 'QMK Userspace Publish'
