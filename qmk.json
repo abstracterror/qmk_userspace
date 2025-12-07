@@ -24,6 +24,7 @@
         ["ferris/sweep", "abstracterror"],
         ["waterfowl", "abstracterror"],
         ["dino/quaziv4n", "abstracterror"],
-        ["weteor/qazikat", "abstracterror"]
+        ["weteor/qazikat", "abstracterror"],
+        ["dino/elchibre", "abstracterror"]
     ]
 }
