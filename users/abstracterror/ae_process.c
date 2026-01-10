@@ -141,7 +141,6 @@ bool process_os_undo_redo(bool redo, keyrecord_t *record) {
 void process_os_command(uint16_t keycode, keyrecord_t *record) {
     switch (detected_host_os()) {
         case OS_WINDOWS:
-        case OS_LINUX:
             keycode = LCTL(keycode);
             break;
         default:
