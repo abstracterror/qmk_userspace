@@ -7,7 +7,7 @@ const char PROGMEM chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] = LAYOUT_34(
     'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R',
     'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R',
     'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R',
-                       '*', '*',  '*', '*'
+                   '*', '*',  '*', '*'
 );
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
