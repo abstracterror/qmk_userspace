@@ -25,6 +25,7 @@
         ["waterfowl", "abstracterror"],
         ["dino/quaziv4n", "abstracterror"],
         ["weteor/qazikat", "abstracterror"],
-        ["dino/elchibre", "abstracterror"]
+        ["dino/elchibre", "abstracterror"],
+        ["beardgrylls/echo", "abstracterror"]
     ]
 }
