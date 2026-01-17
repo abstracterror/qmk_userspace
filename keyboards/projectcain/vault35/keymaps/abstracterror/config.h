@@ -1,3 +1,3 @@
 #define MULTIPLE_KEYS_PER_THUMB
-#define QWERTY_KEYMAP
+#define QAZ_KEYMAP
 #define RGBLIGHT_DEFAULT_ON false
