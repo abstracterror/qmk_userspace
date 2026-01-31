@@ -22,11 +22,6 @@ enum layer_names {
 #endif
 };
 
-// Use in keymaps to get the effect of MT(MOD_LSFT, QK_CAPS_WORD_TOGGLE), if
-// mod-tap supported non-basic keycodes. This relies on code in this user
-// space's `process_record_user` to implement the tap action.
-#define MT_LSFT_CAPS_WORD_TOGGLE MT(MOD_LSFT, KC_CAPS)
-
 // Short keycode aliases
 #define PREVTAB LCTL(LSFT(KC_TAB))
 #define NEXTTAB LCTL(KC_TAB)
@@ -90,7 +85,6 @@ enum layer_names {
 
 // left-hand thumb mod tap
 #define MT_TAB  MT(MOD_LSFT, KC_TAB)
-#define MT_CWT  MT_LSFT_CAPS_WORD_TOGGLE
 
 // extra thumb keys
 #if defined(MULTIPLE_KEYS_PER_THUMB)

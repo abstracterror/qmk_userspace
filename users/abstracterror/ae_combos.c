@@ -10,6 +10,7 @@ const uint16_t PROGMEM right_paren_combo[]   = { LT_U, MT_J, COMBO_END };
 const uint16_t PROGMEM right_brace_combo[]   = { KC_I, MT_K, COMBO_END };
 const uint16_t PROGMEM right_bracket_combo[] = { KC_O, MT_L, COMBO_END };
 const uint16_t PROGMEM semicolon_combo[]     = { MT_K, MT_L, COMBO_END };
+const uint16_t PROGMEM capsword_combo[]      = { MT_S, MT_F, COMBO_END };
 #else
 const uint16_t PROGMEM left_bracket_combo[]  = { KC_W, MT_R, COMBO_END };
 const uint16_t PROGMEM left_brace_combo[]    = { LT_F, MT_S, COMBO_END };
@@ -21,6 +22,7 @@ const uint16_t PROGMEM q_combo[]             = { MT_R, MT_S, COMBO_END };
 const uint16_t PROGMEM v_combo[]             = { MT_S, MT_T, COMBO_END };
 const uint16_t PROGMEM k_combo[]             = { MT_N, MT_E, COMBO_END };
 const uint16_t PROGMEM semicolon_combo[]     = { MT_E, MT_I, COMBO_END };
+const uint16_t PROGMEM capsword_combo[]      = { MT_R, MT_T, COMBO_END };
 #endif
 
 combo_t key_combos[] = {
@@ -32,6 +34,7 @@ combo_t key_combos[] = {
     COMBO(right_brace_combo,   KC_RIGHT_CURLY_BRACE),
     COMBO(right_bracket_combo, KC_RIGHT_BRACKET),
     COMBO(semicolon_combo,     KC_SCLN),
+    COMBO(capsword_combo,      QK_CAPS_WORD_TOGGLE),
 #if !defined(QWERTY_KEYMAP) && !defined(QAZ_KEYMAP)
     COMBO(q_combo,             KC_Q),
     COMBO(v_combo,             KC_V),

@@ -188,22 +188,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
 
-        case MT_LSFT_CAPS_WORD_TOGGLE:
-            if (record->tap.count) {
-                if (record->event.pressed) {
-                    caps_word_toggle();
-                }
-                return false;
-            }
-            return true;
-
         default:
             return true;
     }
 }
 
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
-    if (keycode == MT_TAB || keycode == MT_CWT) {
+    if (keycode == MT_TAB) {
         return true;
     }
     return false;
