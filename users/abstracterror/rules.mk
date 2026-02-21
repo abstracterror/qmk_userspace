@@ -12,4 +12,8 @@ ifeq ($(strip $(PHOENICIAN_ENABLE)), yes)
 	OPT_DEFS += -DPHOENICIAN_ENABLE
 endif
 
+ifeq ($(strip $(CADET_ALPHAS)), yes)
+	OPT_DEFS += -DCADET_ALPHAS
+endif
+
 SRC += ae_unicodemap.c ae_osdetection.c ae_process.c

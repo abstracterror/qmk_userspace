@@ -6,6 +6,9 @@ enum layer_names {
 #ifdef PHOENICIAN_ENABLE
     _PHOENICIAN,
 #endif
+#ifdef CADET_ALPHAS
+    _TOP,
+#endif
 
     _NUM,
     _FUN,
@@ -27,6 +30,10 @@ enum layer_names {
 #define NEXTTAB LCTL(KC_TAB)
 #define CTL_BRK LCTL(KC_BRK)
 #define RGB_RMD RGB_MODE_REVERSE
+
+#if defined(CADET_ALPHAS)
+#   define MO_TOP   MO(_TOP)
+#endif
 
 // not the usual MEH, but I swap Command and Option in macOS
 #define AE_MEH S(C(KC_LGUI))
@@ -129,7 +136,7 @@ enum unicode_names {
     SUBSET_OF,
     SUPERSET_OF,
     FOR_ALL,
-    INFINITY,
+    INFINITY_SYMBOL,
     THERE_EXISTS,
     PARTIAL_DIFFERENTIAL,
     UP_TACK,
@@ -186,13 +193,13 @@ enum unicode_names {
 
 #ifdef CADET_ALPHAS
 #define UM_AND  UM(LOGICAL_AND)
-#define UM_OR   UM(LOGICAL OR)
+#define UM_OR   UM(LOGICAL_OR)
 #define UM_INTS UM(INTERSECTION)
 #define UM_UNIO UM(UNION)
 #define UM_SUBS UM(SUBSET_OF)
 #define UM_SUPS UM(SUPERSET_OF)
 #define UM_FALL UM(FOR_ALL)
-#define UM_INF  UM(INFINITY)
+#define UM_INF  UM(INFINITY_SYMBOL)
 #define UM_EXST UM(THERE_EXISTS)
 #define UM_PDIF UM(PARTIAL_DIFFERENTIAL)
 #define UM_BTTM UM(UP_TACK)
