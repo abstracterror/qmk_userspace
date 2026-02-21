@@ -40,28 +40,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, XXXXXXX, _______, UK_TOGG, QK_BOOT,                   XXXXXXX, KC_F4,   KC_F5,   KC_F6,   XXXXXXX,
         KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX,                   XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F12,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MUTE, KC_MPLY, XXXXXXX, KC_F7,   KC_F8,   KC_F9,   KC_F11,
-                          XXXXXXX, XXXXXXX, _______,                   LT_F10,  XXXXXXX, XXXXXXX
+                          XXXXXXX, XXXXXXX, KC_LSFT,                   LT_F10,  XXXXXXX, XXXXXXX
     ),
 
     [_NUM] = LAYOUT_saegewerk(
         XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,                   XXXXXXX, KC_4,    KC_5,    KC_6,    _______,
         KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX,                   UM_GBP,  KC_1,    KC_2,    KC_3,    KC_BSLS,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MUTE, KC_MPLY, UM_EURO, KC_7,    KC_8,    KC_9,    KC_PIPE,
-                          XXXXXXX, XXXXXXX, _______,                   LT_0,    MO_TSYM, XXXXXXX
+                          XXXXXXX, XXXXXXX, KC_LSFT,                   LT_0,    MO_TSYM, XXXXXXX
     ),
 
     [_LSYM] = LAYOUT_saegewerk(
         XXXXXXX, KC_PLUS, KC_UNDS, KC_DQUO, XXXXXXX,                   XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX,
         KC_COLN, KC_EQL,  KC_MINS, KC_QUOT, XXXXXXX,                   XXXXXXX, KC_LALT, KC_LGUI, KC_LSFT, KC_LCTL,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MUTE, KC_MPLY, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                          XXXXXXX, MO_TSYM, _______,                   _______, XXXXXXX, XXXXXXX
+                          XXXXXXX, MO_TSYM, KC_LSFT,                   _______, XXXXXXX, XXXXXXX
     ),
 
     [_TSYM] = LAYOUT_saegewerk(
         KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_GRV,  KC_TILD,
         KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, AU_TOGG,                   RM_NEXT, RM_TOGG, RM_HUEU, RM_SATU, RM_VALU,
         QK_BOOT, HF_RST,  HF_TOGG, HF_PREV, HF_NEXT, KC_MUTE, KC_MPLY, RM_PREV, XXXXXXX, RM_HUED, RM_SATD, RM_VALD,
-                          XXXXXXX, _______, _______,                   _______, _______, XXXXXXX
+                          XXXXXXX, _______, KC_LSFT,                   _______, _______, XXXXXXX
     ),
 
     [_NAV] = LAYOUT_saegewerk(

@@ -22,28 +22,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, XXXXXXX, _______, UK_TOGG, QK_BOOT, XXXXXXX, KC_F4,   KC_F5,   KC_F6,   XXXXXXX,
         KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX, XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F12,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_F7,   KC_F8,   KC_F9,   XXXXXXX,
-        XXXXXXX,                   _______, _______, LT_F10,  KC_F11,                    _______
+        XXXXXXX,                   _______, KC_LSFT, LT_F10,  KC_F11,                    _______
     ),
 
     [_NUM] = LAYOUT(
         XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX, KC_4,    KC_5,    KC_6,    _______,
         KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX, UM_GBP,  KC_1,    KC_2,    KC_3,    KC_BSLS,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, UM_EURO, KC_7,    KC_8,    KC_9,    KC_PIPE,
-        XXXXXXX,                   _______, _______, LT_0,    _______,                   _______
+        XXXXXXX,                   _______, KC_LSFT, LT_0,    _______,                   _______
     ),
 
     [_LSYM] = LAYOUT(
         XXXXXXX, KC_PLUS, KC_UNDS, KC_DQUO, XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX,
         KC_COLN, KC_EQL,  KC_MINS, KC_QUOT, XXXXXXX, XXXXXXX, KC_LALT, KC_LGUI, KC_LSFT, KC_LCTL,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        XXXXXXX,                   _______, _______, _______, _______,                   _______
+        XXXXXXX,                   _______, KC_LSFT, _______, _______,                   _______
     ),
 
     [_TSYM] = LAYOUT(
         AU_TOGG, AU_PREV, AU_NEXT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         RM_HUEU, RM_SATU, RM_VALU, RM_TOGG, RM_NEXT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         RM_HUED, RM_SATD, RM_VALD, XXXXXXX, RM_PREV, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        CK_TOGG,                   _______, _______, _______, _______,                   _______
+        CK_TOGG,                   _______, KC_LSFT, _______, _______,                   _______
     ),
 
     [_NAV] = LAYOUT(

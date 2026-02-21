@@ -23,28 +23,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, XXXXXXX, _______, UK_TOGG, QK_BOOT,     XXXXXXX, KC_F4,   KC_F5,   KC_F6,   XXXXXXX,
         KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX,     XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F12,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_F7,   KC_F8,   KC_F9,   KC_F11,
-                          XXXXXXX, _______, XXXXXXX,     XXXXXXX, LT_F10
+                          XXXXXXX, KC_LSFT, XXXXXXX,     XXXXXXX, LT_F10
     ),
 
     [_NUM] = LAYOUT(
         XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,     XXXXXXX, KC_4,    KC_5,    KC_6,    _______,
         KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX,     UM_GBP,  KC_1,    KC_2,    KC_3,    KC_BSLS,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     UM_EURO, KC_7,    KC_8,    KC_9,    KC_PIPE,
-                          XXXXXXX, _______, _______,     MO_TSYM, LT_0
+                          XXXXXXX, KC_LSFT, _______,     MO_TSYM, LT_0
     ),
 
     [_LSYM] = LAYOUT(
         XXXXXXX, KC_PLUS, KC_UNDS, KC_DQUO, XXXXXXX,     XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX,
         KC_COLN, KC_EQL,  KC_MINS, KC_QUOT, XXXXXXX,     XXXXXXX, KC_LALT, KC_LGUI, KC_LSFT, KC_LCTL,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                          XXXXXXX, _______, MO_TSYM,     _______, _______
+                          XXXXXXX, KC_LSFT, MO_TSYM,     _______, _______
     ),
 
     [_TSYM] = LAYOUT(
         KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,     KC_CIRC, KC_AMPR, KC_ASTR, KC_GRV,  KC_TILD,
         KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX,     RM_NEXT, RM_TOGG, RM_HUEU, RM_SATU, RM_VALU,
         QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     RM_PREV, XXXXXXX, RM_HUED, RM_SATD, RM_VALD,
-                          XXXXXXX, _______, _______,     _______, _______
+                          XXXXXXX, KC_LSFT, _______,     _______, _______
     ),
 
     [_NAV] = LAYOUT(
