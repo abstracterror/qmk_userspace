@@ -99,6 +99,7 @@ enum layer_names {
 #   define  MO_NUM      MO(_NUM)
 #   define  MO_LSYM     MO(_LSYM)
 #   define  MO_TSYM     MO(_TSYM)
+#   define  TG_TSYM     TG(_TSYM)
 #endif
 
 

@@ -27,6 +27,7 @@
         ["weteor/qazikat", "abstracterror"],
         ["dino/elchibre", "abstracterror"],
         ["beardgrylls/echo", "abstracterror"],
-        ["mechwild/mercutio", "abstracterror"]
+        ["mechwild/mercutio", "abstracterror"],
+        ["beardgrylls/ghost", "abstracterror"]
     ]
 }

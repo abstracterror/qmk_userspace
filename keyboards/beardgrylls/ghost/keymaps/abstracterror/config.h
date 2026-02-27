@@ -1,0 +1,2 @@
+#define MULTIPLE_KEYS_PER_THUMB
+#define QAZ_KEYMAP
