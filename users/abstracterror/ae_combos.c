@@ -13,12 +13,14 @@ const uint16_t PROGMEM semicolon_combo[]     = { MT_K, MT_L, COMBO_END };
 const uint16_t PROGMEM lcapsword_combo[]     = { MT_S, MT_F, COMBO_END };
 const uint16_t PROGMEM rcapsword_combo[]     = { MT_J, MT_L, COMBO_END };
 #else
+const uint16_t PROGMEM less_than_combo[]     = { MT_A, KC_Z, COMBO_END };
 const uint16_t PROGMEM left_bracket_combo[]  = { KC_W, MT_R, COMBO_END };
 const uint16_t PROGMEM left_brace_combo[]    = { LT_F, MT_S, COMBO_END };
 const uint16_t PROGMEM left_paren_combo[]    = { LT_P, MT_T, COMBO_END };
 const uint16_t PROGMEM right_paren_combo[]   = { LT_L, MT_N, COMBO_END };
 const uint16_t PROGMEM right_brace_combo[]   = { KC_U, MT_E, COMBO_END };
 const uint16_t PROGMEM right_bracket_combo[] = { KC_Y, MT_I, COMBO_END };
+const uint16_t PROGMEM greater_than_combo[]  = { MT_O, KC_SLSH, COMBO_END };
 const uint16_t PROGMEM q_combo[]             = { MT_R, MT_S, COMBO_END };
 const uint16_t PROGMEM v_combo[]             = { MT_S, MT_T, COMBO_END };
 const uint16_t PROGMEM k_combo[]             = { MT_N, MT_E, COMBO_END };
@@ -42,5 +44,7 @@ combo_t key_combos[] = {
     COMBO(q_combo,             KC_Q),
     COMBO(v_combo,             KC_V),
     COMBO(k_combo,             KC_K),
+    COMBO(less_than_combo,     KC_LEFT_ANGLE_BRACKET),
+    COMBO(greater_than_combo,  KC_RIGHT_ANGLE_BRACKET),
 #endif
 };

@@ -1,3 +1,6 @@
+// Copyright 2026 @abstracterror
+// SPDX-License-Identifier: GPL-2.0-or-later
+
 #include "quantum.h"
 #include "keymap_extras/keymap_uk.h"
 #include "abstracterror.h"
@@ -217,6 +220,10 @@ const key_override_t zero_override = {
     .enabled                = NULL
 };
 
+#ifdef SHIFT_COMMA_OVERRIDE
+const key_override_t comma_override = ko_make_basic(MOD_MASK_SHIFT, KC_COMMA, KC_DOT);
+#endif
+
 const key_override_t *key_overrides[] = {
     &uk_two_override,
     &uk_three_override,
@@ -233,4 +240,8 @@ const key_override_t *key_overrides[] = {
 
     &nine_override,
     &zero_override,
+
+#ifdef SHIFT_COMMA_OVERRIDE
+    &comma_override,
+#endif
 };
