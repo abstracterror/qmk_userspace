@@ -28,6 +28,7 @@
         ["dino/elchibre", "abstracterror"],
         ["beardgrylls/echo", "abstracterror"],
         ["mechwild/mercutio", "abstracterror"],
-        ["beardgrylls/ghost", "abstracterror"]
+        ["beardgrylls/ghost", "abstracterror"],
+        ["sporkus/le_chiffre_32", "abstracterror_ahov"]
     ]
 }

@@ -3,17 +3,29 @@
 #include "ae_combos.c"
 #include "ae_keyoverrides.c"
 
-#ifdef PHOENICIAN_ENABLE
-#define PH_TOG TG(_PHOENICIAN)
+#ifndef TG_TSYM
+#   define TG_TSYM KC_TRANSPARENT
+#endif
+
+#ifdef CADET_ALPHAS
+#   define TP_Z LT(_TOP, KC_Z)
+#   define TP_SLSH LT(_TOP, KC_SLSH)
 #else
-#define PH_TOG KC_TRANSPARENT
+#   define TP_Z KC_Z
+#   define TP_SLSH KC_SLSH
+#endif
+
+#ifdef PHOENICIAN_ENABLE
+#   define PH_TOG TG(_PHOENICIAN)
+#else
+#   define PH_TOG KC_TRANSPARENT
 #endif
 
 const char PROGMEM chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] = LAYOUT_no_knob(
     'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R',
     'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R',
     'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R',
-                       '*', '*',  '*', '*'
+                   '*', '*',  '*', '*'
 );
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -21,9 +33,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_no_knob(
         KC_Q,    KC_W,    LT_F,    LT_P,    KC_B,       KC_J,    LT_L,    KC_U,    KC_Y,    KC_SCLN,
         MT_A,    MT_R,    MT_S,    MT_T,    KC_G,       KC_M,    MT_N,    MT_E,    MT_I,    MT_O,
-        KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,       KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,
+        TP_Z,    KC_X,    KC_C,    KC_D,    KC_V,       KC_K,    KC_H,    KC_COMM, KC_DOT,  TP_SLSH,
                                    AE_MEH,  MT_TAB,     LT_SPC,  QK_REP
     ),
+
+#ifdef CADET_ALPHAS
+    // This layout based on the positions in the Colemak-DH kitting of SA A History of Violets
+    [_TOP] = LAYOUT_no_knob(
+        UM_AND,  UM_OR,   UM_LTAC, UM_PDIF, UM_IDEN,    UM_LEFT, UM_LR,   UM_FALL, UM_SUPS, _______,
+        UM_BTTM, UM_UNIO, UM_TOP,  UM_SUBS, UM_UP,      UM_GEQL, UM_LEQL, UM_INTS, UM_INF,  UM_EXST,
+        UM_LFLR, UM_LCEI, UM_NEQL, UM_RTAC, UM_AEQL,    UM_RGHT, UM_DOWN, _______, _______, _______,
+                                   _______, KC_LSFT,    _______, _______
+    ),
+#endif
 
 #ifdef PHOENICIAN_ENABLE
     [_PHOENICIAN] = LAYOUT_no_knob(
@@ -55,10 +77,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    _______, KC_LSFT,    _______, _______
     ),
 
+#ifdef MULTIPLE_KEYS_PER_THUMB
+    [_TSYM] = LAYOUT_no_knob(
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RM_SPDU,    RM_NEXT, RM_TOGG, RM_HUEU, RM_SATU, RM_VALU,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RM_SPDD,    RM_PREV, XXXXXXX, RM_HUED, RM_SATD, RM_VALD,
+                                   TG_TSYM, KC_LSFT,    _______, _______
+    ),
+#endif
+
     [_NAV] = LAYOUT_no_knob(
         XXXXXXX, PREVTAB, NEXTTAB, REDO,    CTL_BRK,    XXXXXXX, XXXXXXX, KC_DEL,  KC_BSPC, XXXXXXX,
         KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, KC_ESC,     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_ENT,
         UNDO,    CUT,     COPY,    PASTE,   XXXXXXX,    KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_INS,
-                                   _______, KC_LSFT,    _______, PH_TOG
+                                   TG_TSYM, KC_LSFT,    _______, PH_TOG
     ),
 };
