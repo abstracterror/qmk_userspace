@@ -1,0 +1,3 @@
+#define MULTIPLE_KEYS_PER_THUMB
+#define QAZ_KEYMAP
+#define RGB_MATRIX_DEFAULT_ON false
