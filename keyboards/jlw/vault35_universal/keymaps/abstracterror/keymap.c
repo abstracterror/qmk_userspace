@@ -54,13 +54,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           _______,          KC_LSFT, _______,          _______
     ),
 
-    [_TSYM] = LAYOUT_row_3u_bars(
-        KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_GRV,  KC_TILD, XXXXXXX,
-        KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, XXXXXXX, RM_NEXT, RM_TOGG, RM_HUEU, RM_SATU, RM_VALU,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RM_PREV, XXXXXXX, RM_HUED, RM_SATD, RM_VALD,
-                          _______,          KC_LSFT, _______,          _______
-    ),
-
     [_NAV] = LAYOUT_row_3u_bars(
         XXXXXXX, PREVTAB, NEXTTAB, REDO,    CTL_BRK, XXXXXXX, XXXXXXX, KC_DEL,  KC_BSPC, XXXXXXX, XXXXXXX,
         KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT, KC_ESC,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_ENT,
