@@ -81,8 +81,8 @@ void keyboard_post_init_user(void) {
 
 #ifdef CONVERT_TO_LIATRIS
     // turn off the Liatris power LED
-    setPinOutput(24);
-    writePinHigh(24);
+    gpio_set_pin_output(24);
+    gpio_write_pin_high(24);
 #endif
 }
 
