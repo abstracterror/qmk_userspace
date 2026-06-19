@@ -30,6 +30,7 @@
         ["mechwild/mercutio", "abstracterror"],
         ["beardgrylls/ghost", "abstracterror"],
         ["sporkus/le_chiffre_32", "abstracterror_ahov"],
-        ["jlw/vault35_universal", "abstracterror"]
+        ["jlw/vault35_universal", "abstracterror"],
+        ["weteor/grumpy", "abstracterror_cadet"]
     ]
 }
