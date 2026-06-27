@@ -127,7 +127,7 @@ bool process_os_undo_redo(bool redo, keyrecord_t *record) {
             break;
         default:
             keycode = redo ? S(A(KC_Z)) : A(KC_Z);
-            return true;
+            break;
     }
 
     if (record->event.pressed) {
