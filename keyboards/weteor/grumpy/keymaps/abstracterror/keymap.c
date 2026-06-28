@@ -57,3 +57,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         UNDO,    CUT,     COPY,    PASTE,   KC_LSFT,    _______, KC_PGDN, KC_PGUP, KC_END,  KC_INS
     ),
 };
+
+void keyboard_pre_init_user(void) {
+    // turn off the red user-addressable LED (GPIO 17)
+    gpio_set_pin_output(17);
+    gpio_write_pin_high(17);
+
+    // turn off the green user-addressable LED (GPIO 16)
+    gpio_set_pin_output(16);
+    gpio_write_pin_high(16);
+
+    // turn off the blue user-addressable LED (GPIO 25)
+    gpio_set_pin_output(25);
+    gpio_write_pin_high(25);
+}
