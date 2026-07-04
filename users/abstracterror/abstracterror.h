@@ -16,6 +16,8 @@ enum layer_names {
 
 #ifdef MULTIPLE_KEYS_PER_THUMB
     _TSYM,
+#elif defined(RGB_MATRIX_ENABLE) && !defined(ENCODER_ENABLE)
+    _RGB,
 #endif
 
     _NAV, // must come after _NUM and _FUN
@@ -100,6 +102,9 @@ enum layer_names {
 #   define  MO_LSYM     MO(_LSYM)
 #   define  MO_TSYM     MO(_TSYM)
 #   define  TG_TSYM     TG(_TSYM)
+// rgb control layer
+#elif defined(RGB_MATRIX_ENABLE) && !defined(ENCODER_ENABLE)
+#   define TG_RGB TG(_RGB)
 #endif
 
 

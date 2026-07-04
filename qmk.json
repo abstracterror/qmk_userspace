@@ -31,6 +31,7 @@
         ["beardgrylls/ghost", "abstracterror"],
         ["sporkus/le_chiffre_32", "abstracterror_ahov"],
         ["jlw/vault35_universal", "abstracterror"],
-        ["weteor/grumpy", "abstracterror_cadet"]
+        ["weteor/grumpy", "abstracterror_cadet"],
+        ["haizeus/denali", "abstracterror"]
     ]
 }
