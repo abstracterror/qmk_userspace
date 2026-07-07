@@ -32,6 +32,7 @@
         ["sporkus/le_chiffre_32", "abstracterror_ahov"],
         ["jlw/vault35_universal", "abstracterror"],
         ["weteor/grumpy", "abstracterror_cadet"],
-        ["haizeus/denali", "abstracterror"]
+        ["haizeus/denali", "abstracterror"],
+        ["calvin_mcd/pantagruel", "abstracterror"]
     ]
 }
