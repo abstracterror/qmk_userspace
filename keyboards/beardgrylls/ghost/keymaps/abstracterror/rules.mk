@@ -1,1 +1,0 @@
-REPEAT_KEY_ENABLE = yes
