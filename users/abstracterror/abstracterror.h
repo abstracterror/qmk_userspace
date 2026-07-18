@@ -16,7 +16,7 @@ enum layer_names {
 
 #ifdef MULTIPLE_KEYS_PER_THUMB
     _TSYM,
-#elif defined(RGB_MATRIX_ENABLE) && !defined(ENCODER_ENABLE)
+#elif (defined(RGB_MATRIX_ENABLE) || defined(RGBLIGHT_ENABLE)) && !defined(ENCODER_ENABLE)
     _RGB,
 #endif
 
@@ -103,7 +103,7 @@ enum layer_names {
 #   define  MO_TSYM     MO(_TSYM)
 #   define  TG_TSYM     TG(_TSYM)
 // rgb control layer
-#elif defined(RGB_MATRIX_ENABLE) && !defined(ENCODER_ENABLE)
+#elif (defined(RGB_MATRIX_ENABLE) || defined(RGBLIGHT_ENABLE)) && !defined(ENCODER_ENABLE)
 #   define TG_RGB TG(_RGB)
 #endif
 

@@ -33,6 +33,7 @@
         ["jlw/vault35_universal", "abstracterror"],
         ["weteor/grumpy", "abstracterror_cadet"],
         ["haizeus/denali", "abstracterror"],
-        ["calvin_mcd/pantagruel", "abstracterror"]
+        ["calvin_mcd/pantagruel", "abstracterror"],
+        ["whydobearsexplod/qazfold", "abstracterror"]
     ]
 }
